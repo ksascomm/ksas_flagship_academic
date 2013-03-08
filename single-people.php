@@ -100,14 +100,7 @@
 					<li id="publicationsTab">
 						<?php if ( get_post_meta($post->ID, 'ecpt_publications', true) ) : echo get_post_meta($post->ID, 'ecpt_publications', true); endif; ?>
 						<?php if ( get_post_meta($post->ID, 'ecpt_microsoft_id', true) ) : ?>
-							<?php $author_id = get_post_meta($post->ID, 'ecpt_microsoft_id', true); ?>
-							<div id="LibraInsideDiv" class="libra">[Loading...]</div>
-							<script language="javascript">
-							    g_libraBase="http://academic.research.microsoft.com/";
-							    g_authorID=<?php echo $author_id;?>;
-							    g_showMask=5;g_orderBy=0;g_topN=20;g_showStyle="LibraStyle";g_content=2;g_ws_head="http://academic.research.microsoft.com/";
-							</script>
-							<script language="javascript" id="insideJs" src="http://academic.research.microsoft.com/LibraInside?js&infos=<?php echo $author_id; ?>|5|0|20"></script>						
+							<?php locate_template('parts-microsoft-academic.php', true, false); ?>	
 						<?php endif; ?>
 					</li>
 				<?php endif; ?>
