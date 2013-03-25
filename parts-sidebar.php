@@ -1,4 +1,4 @@
-	<aside class="four columns <?php if ( is_front_page() ) { ?>offset-top<?php } ?> hide-for-print" id="sidebar"> <!-- Begin Sidebar -->
+	<aside class="four columns hide-for-print" id="sidebar"> <!-- Begin Sidebar -->
 		<!-- Start Featured Image -->
 		
 		<!-- Start Navigation for Sibling Pages -->		<!-- END Featured Image --> <?php 

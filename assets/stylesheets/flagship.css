@@ -479,7 +479,7 @@ nav ul {
 #main_nav ul li:hover ul,
 #main_nav ul li a:hover ul {
 	background: rgba(0,0,0,1); 
-	z-index: 5;
+	z-index: 15;
 }
 
 #main_nav ul li:hover ul li ul,
@@ -610,7 +610,8 @@ ul.breadcrumbs a{
 	color: #ccc;
 	text-transform: uppercase;
 	font-family:"Myriad W01 Bd";
-	margin-top:15px;
+	margin-top:5px;
+	margin-bottom: 10px;
 }
 
 #search-bar .columns {
@@ -625,7 +626,19 @@ ul.breadcrumbs a{
 
 #search-bar .links {
 	margin-top: 9px;
-	padding-left:10px;
+}
+
+.links li {
+	list-style: none;
+	display: inline;
+}
+
+.links li:after {
+	content: " | ";
+}
+
+.links li:last-child:after {
+	content: "";
 }
 
 #search-bar input[type="text"] {
@@ -640,7 +653,7 @@ ul.breadcrumbs a{
     border-bottom-right-radius: 		7px;
     display: inline;
     float:left;
-    width:82%;
+    width:75%;
     border:none;
 }
 
@@ -816,6 +829,10 @@ ul.nav li ul li:before {
 #sidebar h6 {
 	margin-bottom: 7px;
 	color: #000;
+}
+
+#sidebar p { 
+	font-style: normal;
 }
 
 .sidebar_bg ul.nav li a,
@@ -1067,6 +1084,7 @@ button.radio {
 	opacity: 1;
 	padding: 5px;
 	margin-right: 0;
+	text-transform: capitalize;
 }
 
 button.radio a {
@@ -1391,6 +1409,15 @@ li.person img {
 	right: 0px;
 }
 
+p.pub {
+	margin-bottom: 3px;
+	line-height: 1.6em;
+}
+
+h6.pub {
+	margin-top: 0px;
+	margin-bottom: 25px;
+}
 /*******HOMEPAGE SLIDER ******/
 
 ul.orbit-bullets {
@@ -1417,10 +1444,17 @@ ul.orbit-bullets li.has-thumb {
 div.orbit-wrapper div.timer {
 	display: none;
 }
-#caption {
+#caption.vertical {
 	min-height: 425px;
 	position: absolute;
 	top:0;
+}
+
+#caption.horizontal {
+	position: absolute;
+	bottom:0;
+	max-height: 100px;
+	padding: 15px;
 }
 
 .slide summary {
@@ -1436,7 +1470,7 @@ div.orbit-wrapper div.timer {
 	left:0 !important;
 }
 
-.middle {
+#caption.vertical .middle {
 	vertical-align: middle;
 	margin-top: 45%;
 }
@@ -1455,6 +1489,10 @@ div.orbit-wrapper div.timer {
 }
 .slide .icon-arrow-right-2 {
 	padding-left:6px;
+}
+
+.orbit {
+	margin-bottom: 0;
 }
 
 

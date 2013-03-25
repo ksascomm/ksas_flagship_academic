@@ -24,7 +24,8 @@
   </script>
     
 <!***********DIRECTORY**************>
-<?php if ( is_page_template( 'template-people-directory.php' ))  { ?>
+<?php $theme_option = flagship_sub_get_global_options();
+if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flagship_sub_directory_search']  == '1' )  { ?>
   	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/jquery.isotope.js"></script>
   	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/jquery.quicksearch.js"></script>  	
   	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/page.directory.js"></script>

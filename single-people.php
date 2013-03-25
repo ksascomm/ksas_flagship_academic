@@ -27,10 +27,10 @@
 			</div>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<div class="four columns">
-			    <?php if ( get_post_meta($post->ID, 'ecpt_people_photo', true) ) : ?>
-					<img src="<?php echo get_post_meta($post->ID, 'ecpt_people_photo', true); ?>" />
-			    <?php endif; ?>
-			    <h4><?php the_title() ?></h4>
+				<?php if ( has_post_thumbnail()) { ?> 
+						<?php the_post_thumbnail('full'); ?>
+					<?php } ?>			    
+					<h4><?php the_title() ?></h4>
 			    <h6><?php echo get_post_meta($post->ID, 'ecpt_position', true); ?></h6>
 			
 			    <p class="listing">
@@ -50,9 +50,11 @@
 			    		<span class="icon-printer"></span><?php echo get_post_meta($post->ID, 'ecpt_fax', true); ?><br>
 			    	<?php endif; ?>
 			    
-			    	<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : ?>
-			    		<a href="mailto:<?php echo get_post_meta($post->ID, 'ecpt_email', true); ?>"><span class="icon-mail"></span><?php echo get_post_meta($post->ID, 'ecpt_email', true); ?></a><br>
-			    	<?php endif; ?>
+			    	<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : $email = get_post_meta($post->ID, 'ecpt_email', true); ?>
+											<span class="icon-mail"></span><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge($email); ?>">
+											
+											<?php echo email_munge($email); ?> </a><br>
+										<?php endif; ?>
 			    	
 			    	<?php if ( get_post_meta($post->ID, 'ecpt_cv', true) ) : ?>
 			    		<a href="<?php echo get_post_meta($post->ID, 'ecpt_cv', true); ?>"><span class="icon-file-pdf"></span>Curriculum Vitae</a><br>
@@ -74,7 +76,7 @@
 				
 				<?php if ( get_post_meta($post->ID, 'ecpt_teaching', true) ) : ?><dd><a href="#teaching">Teaching</a></dd><?php endif; ?>
 				
-				<?php if ( get_post_meta($post->ID, 'ecpt_publications', true) || get_post_meta($post->ID, 'ecpt_microsoft_id', true) ) : ?><dd><a href="#publications">Publications</a></dd><?php endif; ?>
+				<?php if ( get_post_meta($post->ID, 'ecpt_publications', true) || get_post_meta($post->ID, 'ecpt_microsoft_id', true) || get_post_meta($post->ID, 'ecpt_google_id', true)) : ?><dd><a href="#publications">Publications</a></dd><?php endif; ?>
 				
 				<?php if ( get_post_meta($post->ID, 'ecpt_extra_tab_title', true) ) : ?><dd><a href="#extra"><?php echo get_post_meta($post->ID, 'ecpt_extra_tab_title', true); ?></a></dd><?php endif; ?>
 				
@@ -96,12 +98,20 @@
 					<li id="teachingTab"><?php echo get_post_meta($post->ID, 'ecpt_teaching', true); ?></li>
 				<?php endif; ?>
 				
-				<?php if ( get_post_meta($post->ID, 'ecpt_publications', true) || get_post_meta($post->ID, 'ecpt_microsoft_id', true) ) : ?>
+				<?php if ( get_post_meta($post->ID, 'ecpt_publications', true) || get_post_meta($post->ID, 'ecpt_microsoft_id', true) || get_post_meta($post->ID, 'ecpt_google_id', true) ) : ?>
 					<li id="publicationsTab">
 						<?php if ( get_post_meta($post->ID, 'ecpt_publications', true) ) : echo get_post_meta($post->ID, 'ecpt_publications', true); endif; ?>
 						<?php if ( get_post_meta($post->ID, 'ecpt_microsoft_id', true) ) : ?>
-							<?php locate_template('parts-microsoft-academic.php', true, false); ?>	
+							<?php $author_id = get_post_meta($post->ID, 'ecpt_microsoft_id', true); ?>
+							<div id="LibraInsideDiv" class="libra">[Loading...]</div>
+							<script language="javascript">
+							    g_libraBase="http://academic.research.microsoft.com/";
+							    g_authorID=<?php echo $author_id;?>;
+							    g_showMask=5;g_orderBy=0;g_topN=20;g_showStyle="LibraStyle";g_content=2;g_ws_head="http://academic.research.microsoft.com/";
+							</script>
+							<script language="javascript" id="insideJs" src="http://academic.research.microsoft.com/LibraInside?js&infos=<?php echo $author_id; ?>|5|0|20"></script>						
 						<?php endif; ?>
+						<?php if ( get_post_meta($post->ID, 'ecpt_google_id', true) ) : locate_template('parts-google-scholar.php', true, false); endif; ?>
 					</li>
 				<?php endif; ?>
 				

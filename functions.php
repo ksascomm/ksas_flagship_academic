@@ -20,6 +20,7 @@ function academic_flagship_theme_support() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 125, 125, true );   // default thumb size
 	add_image_size( 'rss', 300, 150, true );
+	add_image_size( 'directory', 90, 130, true );
 	add_theme_support( 'automatic-feed-links' ); // rss thingy
 	$bg_args = array(
 		'default-color'          => '#000000',
@@ -32,7 +33,8 @@ function academic_flagship_theme_support() {
 	add_theme_support( 'menus' );            
 	register_nav_menus(                      
 		array( 
-			'main_nav' => 'The Main Menu',   
+			'main_nav' => 'The Main Menu', 
+			'search_bar' => 'Search Bar Links',
 			'quick_links' => 'Quick Links',
 			'footer_links' => 'Footer Links'
 		)
@@ -48,7 +50,7 @@ add_action('after_setup_theme','academic_flagship_theme_support');
 			'name'          => 'Default Sidebar',
 			'id'            => 'page-sb',
 			'description'   => 'This is the default sidebar',
-			'before_widget' => '<div id="widget" class="widget row">',
+			'before_widget' => '<div id="widget" class="widget %2$s row">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<div class="blue_bg widget_title"><h5 class="white">',
 			'after_title'   => '</h5></div>' 
@@ -58,7 +60,7 @@ add_action('after_setup_theme','academic_flagship_theme_support');
 			'name'          => 'Graduate Sidebar',
 			'id'            => 'graduate-sb',
 			'description'   => 'This sidebar will appear on pages under Graduate',
-			'before_widget' => '<div id="widget" class="widget row">',
+			'before_widget' => '<div id="widget" class="widget %2$s row">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<div class="blue_bg widget_title"><h5 class="white">',
 			'after_title'   => '</h5></div>' 
@@ -68,7 +70,7 @@ add_action('after_setup_theme','academic_flagship_theme_support');
 			'name'          => 'Undergraduate Sidebar',
 			'id'            => 'undergrad-sb',
 			'description'   => 'This sidebar will appear on pages under Undergraduate',
-			'before_widget' => '<div id="widget" class="widget row">',
+			'before_widget' => '<div id="widget" class="widget %2$s row">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<div class="blue_bg widget_title"><h5 class="white">',
 			'after_title'   => '</h5></div>' 
@@ -78,7 +80,7 @@ add_action('after_setup_theme','academic_flagship_theme_support');
 			'name'          => 'Research Sidebar',
 			'id'            => 'research-sb',
 			'description'   => 'This sidebar will appear on pages under Research',
-			'before_widget' => '<div id="widget" class="widget row">',
+			'before_widget' => '<div id="widget" class="widget %2$s row">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<div class="blue_bg widget_title"><h5 class="white">',
 			'after_title'   => '</h5></div>' 
@@ -88,7 +90,7 @@ add_action('after_setup_theme','academic_flagship_theme_support');
 			'name'          => 'Homepage Sidebar',
 			'id'            => 'homepage-sb',
 			'description'   => 'This sidebar will only appear on the homepage',
-			'before_widget' => '<div id="widget" class="widget row">',
+			'before_widget' => '<div id="widget" class="widget %2$s row">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<div class="blue_bg widget_title"><h5 class="white">',
 			'after_title'   => '</h5></div>' 
@@ -122,17 +124,40 @@ function get_the_roles($post) {
 					return $role_name;
 }
 
-/*
+/**********DELETE TRANSIENTS******************/
+
 function delete_people_transients() {
-if(post_type_exists('people')) {
-	if($_POST[post_type] == 'people') {
-		delete_transient('faculty_people_query');
-		delete_transient('research_people_query');
-		delete_transient('staff_people_query');
+	
+		if($_POST[post_type] == 'people') {
+			delete_transient('faculty_people_query');
+			delete_transient('research_people_query');
+			delete_transient('staff_people_query');
+		}
 	}
+if(post_type_exists('people')) {	
+	add_action('save_post','delete_people_transients');
 }
+
+function delete_news_transients() {
+		for ($i=1; $i < 5; $i++)
+		    { delete_transient('faculty_books_query_' . $i); }
+		   
+		delete_transient('news_query');
+		
 }
-add_action('save_post','delete_people_transients');
-*/
+
+add_action('save_post','delete_news_transients');
+
+
+
+function delete_slider_transients() {
+			if($_POST[post_type] == 'slider') {
+			delete_transient('slider_query');
+		}
+	}
+
+	if(post_type_exists('slider')) {		
+		add_action('save_post','delete_slider_transients'); 
+	}
 
 ?>

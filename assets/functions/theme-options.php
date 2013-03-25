@@ -42,12 +42,29 @@ function flagship_sub_options_page_fields() {
 	$options[2] =
 	array (		
 		"section" => "select_section",
+		"id"      => FLAGSHIP_SUB_SHORTNAME . "_slider_style",
+		"title"   => __( 'Homepage slider style', 'flagship_sub_textdomain' ),
+		"desc"    => __( 'Choose to have a horizontal or vertical caption on your slider', 'flagship_sub_textdomain' ),
+		"type"    => "select",
+		"choices" => array("horizontal", "vertical"),
+		"std"    => "vertical");
+	$options[3] =
+	array (		
+		"section" => "select_section",
 		"id"      => FLAGSHIP_SUB_SHORTNAME . "_breadcrumbs",
 		"title"   => __( 'Breadcrumbs', 'flagship_sub_textdomain' ),
 		"desc"    => __( 'Do you want breadcrumb navigation on your subpages?', 'flagship_sub_textdomain' ),
 		"type"    => "checkbox",
+		"std"    => "1");
+	$options[4] =
+	array (		
+		"section" => "select_section",
+		"id"      => FLAGSHIP_SUB_SHORTNAME . "_directory_search",
+		"title"   => __( 'Directory Search', 'flagship_sub_textdomain' ),
+		"desc"    => __( 'Do you want a search box and filter capabilities for your people directory?', 'flagship_sub_textdomain' ),
+		"type"    => "checkbox",
 		"std"    => "1");	
-	$options[3] =
+	$options[5] =
 	array (		
 		"section" => "select_section",
 		"id"      => FLAGSHIP_SUB_SHORTNAME . "_breadcrumb_home",
@@ -56,7 +73,7 @@ function flagship_sub_options_page_fields() {
 		"type"    => "text",
 		"class"   => "nohtml",
 		"std"    => "Home");
-	$options[4] =
+	$options[6] =
 	array (		
 		"section" => "select_section",
 		"id"      => FLAGSHIP_SUB_SHORTNAME . "_google_analytics",
@@ -65,7 +82,7 @@ function flagship_sub_options_page_fields() {
 		"type"    => "text",
 		"class"   => "nohtml",
 		"std"    => "UA-2497774-9");
-	$options[5] =
+	$options[7] =
 	array (		
 		"section" => "select_section",
 		"id"      => FLAGSHIP_SUB_SHORTNAME . "_search_collection",

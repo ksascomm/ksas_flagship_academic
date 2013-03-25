@@ -5,6 +5,7 @@ Template Name: People Directory
 ?>	
 
 <?php get_header(); 
+
 if ( false === ( $faculty_people_query = get_transient( 'faculty_people_query' ) ) ) {
        // It wasn't there, so regenerate the data and save the transient
 	$faculty_people_query = new WP_Query(array(
@@ -51,22 +52,32 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 	<section class="row">
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<h2><?php the_title();?></h2>
-		<?php endwhile; endif; ?>		
+		<?php endwhile; endif; ?>
+		<?php $theme_option = flagship_sub_get_global_options();
+				if ( $theme_option['flagship_sub_directory_search']  == '1' ) { ?>	
 		<div id="fields_search">
 			<form action="#">
 				<fieldset class="radius10">
 					<div class="row">
 						<h6>Search the directory:</h6>
 					</div>
-					<div class="row filter option-set" data-filter-group="role">
-						<button class="radio"><a href="#" data-filter="" class="selected">View all</a></button>
-						<button class="radio"><a href="#" data-filter=".faculty">Faculty</a></button>
-						<button class="radio"><a href="#" data-filter=".research">Research Staff</a></button>
-						<button class="radio"><a href="#" data-filter=".staff">Administrative Staff</a></button>
-					</div>
-
+					<?php $roles = get_terms('role', array(
+						'orderby'       => 'name', 
+						'order'         => 'ASC',
+						'hide_empty'    => true, 
+						));
+						
+						$count_roles =  count($roles);
+						if ( $count_roles > 0 ) { ?>
+							<div class="row filter option-set" data-filter-group="role">
+									<button class="radio"><a href="#" data-filter="" class="selected">View All</a></button>
+								<?php foreach ( $roles as $role ) { ?>
+									<button class="radio"><a href="#" data-filter=".<?php echo $role->slug; ?>"><?php echo $role->name; ?></a></button>
+								<?php } ?>
+							</div>
+						<?php } ?>
 					<div class="row">		
-						<input type="submit" class="icon-search" placeholder="Search by name, title, and research interests"value="&#xe004;" />
+						<input type="submit" class="icon-search" placeholder="Search by name, title, and research interests" value="&#xe004;" />
 						<input type="text" name="search" id="id_search"  /> 
 					</div>
 					<?php $filters = get_terms('filter', array(
@@ -78,7 +89,7 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 						$count_filters =  count($filters);
 						if ( $count_filters > 0 ) { ?>
 							<div class="row filter option-set" data-filter-group="expertise">
-									<button class="radius10 yellow_bg"><a href="#" class="black" data-filter="" class="selected">View All</a>
+									<button class="radius10 yellow_bg"><a href="#" class="black" data-filter="" class="selected">View All</a></button>
 								<?php foreach ( $filters as $filter ) { ?>
 									<button class="radius10 yellow_bg"><a href="#" class="black" data-filter=".<?php echo $filter->slug; ?>"><?php echo $filter->name; ?></a></button>
 								<?php } ?>
@@ -87,6 +98,7 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 				</fieldset>
 			</form>	
 		</div>
+		<?php } ?>
 	</section>
 	
 	<section class="row" id="fields_container">
@@ -98,10 +110,12 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 				<li class="person <?php echo get_the_directory_filters($post);?> <?php echo get_the_roles($post); ?>">
 					<div class="row">
 						<div class="twelve columns">
-							
-						<?php if ( get_post_meta($post->ID, 'ecpt_people_photo', true) ) : ?><img src="<?php echo get_post_meta($post->ID, 'ecpt_people_photo', true); ?>" class="padding-five floatleft hide-for-small" /><?php endif; ?>
+							<a href="<?php the_permalink();?>" title="<?php the_title(); ?>" class="field">
+							<?php if ( has_post_thumbnail()) { ?> 
+								<?php the_post_thumbnail('directory', array('class' => 'padding-five floatleft hide-for-small')); ?>
+							<?php } ?>			    
 
-									<a href="<?php the_permalink();?>" title="<?php the_title(); ?>" class="field"><h4 class="no-margin"><?php the_title(); ?></h4></a>
+									<h4 class="no-margin"><?php the_title(); ?></h4></a>
 									<?php if ( get_post_meta($post->ID, 'ecpt_position', true) ) : ?><h6><?php echo get_post_meta($post->ID, 'ecpt_position', true); ?></h6><?php endif; ?>
 									<?php if ( get_post_meta($post->ID, 'ecpt_degrees', true) ) : ?><?php echo get_post_meta($post->ID, 'ecpt_degrees', true); ?><?php endif; ?>
 									<p class="contact no-margin">
@@ -111,8 +125,10 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 										<?php if ( get_post_meta($post->ID, 'ecpt_fax', true) ) : ?>
 											<span class="icon-printer"><?php echo get_post_meta($post->ID, 'ecpt_fax', true); ?></span>
 										<?php endif; ?>
-										<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : ?>
-											<span class="icon-mail"><a href="mailto:<?php echo get_post_meta($post->ID, 'ecpt_email', true); ?>"><?php echo get_post_meta($post->ID, 'ecpt_email', true); ?></a></span>
+										<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : $email = get_post_meta($post->ID, 'ecpt_email', true); ?>
+											<span class="icon-mail"><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge($email); ?>">
+											
+											<?php echo email_munge($email); ?> </a></span>
 										<?php endif; ?>
 										<?php if ( get_post_meta($post->ID, 'ecpt_office', true) ) : ?>
 											<span class="icon-location"><?php echo get_post_meta($post->ID, 'ecpt_office', true); ?></span>
@@ -145,8 +161,10 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 										<?php if ( get_post_meta($post->ID, 'ecpt_fax', true) ) : ?>
 											<span class="icon-printer"><?php echo get_post_meta($post->ID, 'ecpt_fax', true); ?></span>
 										<?php endif; ?>
-										<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : ?>
-											<span class="icon-mail"><a href="mailto:<?php echo get_post_meta($post->ID, 'ecpt_email', true); ?>"><?php echo get_post_meta($post->ID, 'ecpt_email', true); ?></a></span>
+										<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : $email = get_post_meta($post->ID, 'ecpt_email', true); ?>
+											<span class="icon-mail"><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge($email); ?>">
+											
+											<?php echo email_munge($email); ?> </a></span>
 										<?php endif; ?>
 										<?php if ( get_post_meta($post->ID, 'ecpt_office', true) ) : ?>
 											<span class="icon-location"><?php echo get_post_meta($post->ID, 'ecpt_office', true); ?></span>
@@ -179,8 +197,10 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 										<?php if ( get_post_meta($post->ID, 'ecpt_fax', true) ) : ?>
 											<span class="icon-printer"><?php echo get_post_meta($post->ID, 'ecpt_fax', true); ?></span>
 										<?php endif; ?>
-										<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : ?>
-											<span class="icon-mail"><a href="mailto:<?php echo get_post_meta($post->ID, 'ecpt_email', true); ?>"><?php echo get_post_meta($post->ID, 'ecpt_email', true); ?></a></span>
+										<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : $email = get_post_meta($post->ID, 'ecpt_email', true); ?>
+											<span class="icon-mail"><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge($email); ?>">
+											
+											<?php echo email_munge($email); ?> </a></span>
 										<?php endif; ?>
 										<?php if ( get_post_meta($post->ID, 'ecpt_office', true) ) : ?>
 											<span class="icon-location"><?php echo get_post_meta($post->ID, 'ecpt_office', true); ?></span>
@@ -198,12 +218,13 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 		<?php if($staff_page_query->have_posts()) : ?>
 		<a name="staff" id="staff"></a>
 		<?php while ($staff_page_query->have_posts()) : $staff_page_query->the_post(); the_content(); endwhile; endif;?>
-	
+	<?php if ( $theme_option['flagship_sub_directory_search']  == '1' ) { ?>
 	<div class="row" id="noresults">
 		<div class="four columns centered">
 			<h3>No matching results</h3>
 		</div>
 	</div>
+	<?php } ?>
 </ul>
 </section>
 </div>

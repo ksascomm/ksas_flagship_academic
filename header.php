@@ -47,11 +47,15 @@
 						<input type="text" name="q" placeholder="Search this site" />
 					</form>
 					</div>
-					<div class="six columns links">
-						<a href="#">Dept Directory</a> | 
-						<a href="http://my.jhu.edu">MYJHU</a> | 
-						<a href="http://library.jhu.edu">Library</a>
-					</div>
+						<?php wp_nav_menu( array( 
+							'theme_location' => 'search_bar', 
+							'menu_class' => '', 
+							'fallback_cb' => 'foundation_page_menu', 
+							'container' => 'div',
+							'container_id' => 'search_links', 
+							'container_class' => 'six columns links inline',
+							'depth' => 1,
+							'items_wrap' => '%3$s', )); ?> 
 				</div>	
 			</div>	<!-- End #search-bar	 -->
 		</div>
@@ -79,7 +83,7 @@
 		<div class="row show-for-small black_bg radius10" id="mobile_nav_container">
 
 			<?php wp_nav_menu( array( 
-				'theme_location' => 'main_nav', 
+				'theme_location' => 'search_bar', 
 				'menu_class' => '', 
 				'fallback_cb' => 'foundation_page_menu', 
 				'container' => 'div',

@@ -1,8 +1,13 @@
 <?php get_header(); ?>
 <?php
-	$slider_query = new WP_Query(array(
-		'post_type' => 'slider',
-		'posts_per_page' => '-1'));
+	$theme_option = flagship_sub_get_global_options(); 
+	if ( false === ( $slider_query = get_transient( 'slider_query' ) ) ) {
+		$slider_query = new WP_Query(array(
+			'post_type' => 'slider',
+			'posts_per_page' => '5'));
+		set_transient( 'slider_query', $slider_query, 2592000 );
+	} 	
+	if ( $slider_query->have_posts() ) :
 ?>
 <div class="row hide-for-mobile">
 <div id="slider" class="twelve columns radius10 no-gutter">
@@ -11,15 +16,12 @@
 <a href="<?php echo get_post_meta($post->ID, 'ecpt_urldestination', true); ?>">
 <div class="slide">
 	<img src="<?php echo get_post_meta($post->ID, 'ecpt_slideimage', true); ?>" class="radius-top" />
-	<summary class="four columns black_bg offset-by-eight radius-topright" id="caption">
-		<div class="middle">
-			<h3 class="white"><?php the_title(); ?></h3>
-			<h5 class="white italic"><?php echo get_the_content(); ?></h5>
-		   	<?php if ( get_post_meta($post->ID, 'ecpt_button', true) ) : ?>				
-				<h6 class="yellow">Find Out More <span class="icon-arrow-right-2"></span></h6>
-			<?php endif;?>
-		</div>
-	</summary>
+	<?php if($theme_option['flagship_sub_slider_style'] == "vertical") { 
+		 	locate_template('parts-vertical-slider.php', true, false); 	
+		 	}
+	 elseif($theme_option['flagship_sub_slider_style'] == "horizontal") { 
+	 		locate_template('parts-horizontal-slider.php', true, false); 
+	  } ?>
 </div>
 </a>
 <?php endwhile; ?>
@@ -28,19 +30,25 @@
 </div>
 </div>
 
-<div class="row sidebar_bg radius10 offset-top">
-	<div class="eight columns wrapper offset-top toplayer">		
+<?php endif; ?>
+
+<div class="row sidebar_bg radius10 <?php if($theme_option['flagship_sub_slider_style'] == "vertical") { ?>offset-top <?php } ?>">
+	<div class="eight columns wrapper <?php if($theme_option['flagship_sub_slider_style'] == "vertical") { ?>offset-top <?php } ?>toplayer">		
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<section>
 				<?php the_content(); ?>			
 			</section>
 		<?php endwhile; endif; ?>	
 		
-		<?php $theme_option = flagship_sub_get_global_options(); 
+		<?php 
 			$news_quantity = $theme_option['flagship_sub_news_quantity'];
-			$news_query = new WP_Query(array(
-				'post_type' => 'post',
-				'posts_per_page' => $news_quantity)); 
+			if ( false === ( $news_query = get_transient( 'news_query' ) ) ) {
+				// It wasn't there, so regenerate the data and save the transient
+				$news_query = new WP_Query(array(
+					'post_type' => 'post',
+					'posts_per_page' => $news_quantity)); 
+					set_transient( 'news_query', $news_query, 2592000 );
+			} 	
 			if ( $news_query->have_posts() ) :
 		?>
 		<h4><?php echo $theme_option['flagship_sub_feed_name']; ?></h4>
