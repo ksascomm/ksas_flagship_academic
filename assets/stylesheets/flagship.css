@@ -112,49 +112,64 @@ ol {
 	color:#3478b6
 }
 
-.blue_bg {
+.blue_bg,
+.color1 {
 	background: #3478b6;
 }
 
-.dark_blue_bg {
+.dark_blue_bg,
+.color8 {
 	background:#003366;
 }
 
-.grey_bg {
+.grey_bg,
+.color9 {
 	background: #666;
 }
 
-.rust_bg {
+.rust_bg,
+.color7 {
 	background: #663333;
 }
-.green_bg{
+.green_bg,
+.color4{
 	background: #006666;
 }
 
-.purple_bg{
+.purple_bg,
+.color5 {
 	background: #333366;
 }
 
-.fushia {
+.fushia,
+.color6  {
 	background: #993366;
 }
 
-.yellow_bg{
+.yellow_bg,
+.color2 {
 	background: #dbb003;
 }
 
 .orange_bg,
-.orange_bg.button:hover {
+.orange_bg.button:hover,
+.color3 {
 	background: #cc6600;
 }
 
 .bright_blue_bg,
-.bright_blue_bg.button:hover {
+.bright_blue_bg.button:hover,
+.color0,
+.SECalendarPrevMonth,
+.SECalendarNextMonth {
 	background: #3399ff;
 }
 
 button,
-.button {
+.button,
+.select-buttons li,
+.SECalendarPrevMonth,
+.SECalendarNextMonth {
 	border:none;
 	-webkit-border-radius:  7px;
 	-moz-border-radius: 	7px;
@@ -169,19 +184,26 @@ button,
 	font-weight: normal;
 }
 
-.button {
+.button,
+.select-buttons li {
 	display: inline;
 }
 
 button:hover,
-.button:hover {
+.button:hover,
+.select-buttons li:hover {
 	opacity: 1;
 }
 
 
 button a,
 button a:hover,
-button a:visited {
+button a:visited,
+.select-buttons li a,
+.select-buttons li a:hover,
+.select-buttons li a:visited,
+.SECalendarPrevMonth a,
+.SECalendarNextMonth a {
 	color: #fff;
 }
 
@@ -1239,6 +1261,10 @@ ul.nav:last-child {
 	font-family: "Myriad W01 Regular", Arial, sans-serif;
 }
 
+#SECalendarListWrapper .SECalendarThumb {
+	display: none;
+}
+
 .SECalendarEventName h3 {
 	font-family:"Myriad W01 Bd";
 	font-size: 18px;
@@ -1246,8 +1272,12 @@ ul.nav:last-child {
 
 .SECalendarEventDetails {
 	border-color: transparent;
-	background: none;
-	padding-bottom: 40px;
+	padding: 5px 10px;
+	margin-bottom: 20px;
+	-webkit-border-radius:  10px;
+	-moz-border-radius: 	10px;
+	border-radius: 			10px;
+	
 }
 
 .SECalendarEventDetails .SECalendarProperty {
@@ -1284,7 +1314,12 @@ ul.nav:last-child {
 	vertical-align: middle;
 }
 
-a.rssLink {
+a.rssLink,
+#SECalendarSearch .SECalendarLocation,
+#SECalendarSearch .SECalendarKeyword input.SEApplicationText,
+#SECalendarSearch .SECalendarType label,
+#SECalendarSearch .SECalendarKeyword label
+ {
 	display: none;
 }
 
@@ -1297,6 +1332,24 @@ a.rssLink {
 #SECalendar {
 	padding-bottom: 50px;
 }
+
+#SECalendar .SECalendarEventName a,
+#SECalendar .SECalendarEventTime {
+	color: #FFF;
+}
+
+#SECalendarSearch {
+	margin-top:10px;
+}
+
+.SECalendarMonth {
+	font-size: 18px;
+}
+
+.SECalendarDay a {
+	color: #000;
+}
+
 /******* News Index Pages ******/
 
 .news img {

@@ -20,8 +20,8 @@ class KSAS_GoogleSearch extends KSAS_Search {
      * @param integer $resultsPerPage the number of results to display on each page of results
      * @returns KSAS_GoogleSearchResults
      */
-    public function query($q, $baseQueryURL, $resultsPageNum = 1, $resultsPerPage = 10) {
-        return new KSAS_GoogleSearchResults($this, $q, $baseQueryURL, $resultsPageNum, $resultsPerPage);
+    public function query($q, $collection_name, $baseQueryURL, $resultsPageNum = 1, $resultsPerPage = 10) {
+        return new KSAS_GoogleSearchResults($this, $q, $collection_name, $baseQueryURL, $resultsPageNum, $resultsPerPage);
     }
 }
 
@@ -39,6 +39,7 @@ class KSAS_GoogleSearchResults extends KSAS_SearchResults {
     private $notices = array(); // notices to the user about the search results
     private $paginator = null;
     private $q = null;
+    private $collection_name = null;
     private $resultsCounter = 0;
     private $resultsPageNum = null;
     private $searchEngine = null;
@@ -54,19 +55,19 @@ class KSAS_GoogleSearchResults extends KSAS_SearchResults {
      * @param integer $resultsPerPage the number of results to display on each page of results
      * @returns KSAS_GoogleSearchResults
      */
-    public function __construct(KSAS_GoogleSearch $searchEngine, $q, $baseQueryURL, $resultsPageNum = 1, $resultsPerPage = 10) {
+    public function __construct(KSAS_GoogleSearch $searchEngine, $q, $collection_name, $baseQueryURL, $resultsPageNum = 1, $resultsPerPage = 10) {
         $this->start = ($resultsPageNum - 1) * $resultsPerPage; // google counts from 0, array style
         
         $this->searchEngine = $searchEngine;
         $searchParams = array(  'q'         => urlencode($q),
                                 'num'           => $resultsPerPage,
-                                'filter'        => 0 );
+                                'filter'        => 0,
+                                'site' => $collection_name );
         if ($this->start > 0) {
             $searchParams['start'] = $this->start;
         }
-        $theme_option = flagship_sub_get_global_options(); 
-        $collection_name = $theme_option['flagship_sub_search_collection'];
-        $url = "http://search.johnshopkins.edu/search?output=xml&site=" . $collection_name . "&client=ksas_frontend";
+        
+        $url = "http://search.johnshopkins.edu/search?output=xml&client=ksas_frontend";
         foreach ($searchParams as $key => $value) {
             $url .= "&$key=$value";
         }

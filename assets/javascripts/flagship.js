@@ -3,3 +3,11 @@
 $('a').filter(function() {
    return this.hostname && this.hostname !== location.hostname;
 }).addClass("external");
+
+<script>
+   $('#right-button').click(function {
+      $('#content').animate({
+        marginLeft: -="200px"
+      }, "fast");
+   });
+</script>

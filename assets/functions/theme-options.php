@@ -90,7 +90,16 @@ function flagship_sub_options_page_fields() {
 		"desc"    => __( 'Enter the name of the google search appliance collection', 'flagship_sub_textdomain' ),
 		"type"    => "text",
 		"class"   => "nohtml",
-		"std"    => "krieger_collection");		
+		"std"    => "krieger_collection");
+	$options[8] =
+	array (		
+		"section" => "select_section",
+		"id"      => FLAGSHIP_SUB_SHORTNAME . "_calendar_address",
+		"title"   => __( 'Calendar URL', 'flagship_sub_textdomain' ),
+		"desc"    => __( 'Enter the URL of your Site Executive calendar instance', 'flagship_sub_textdomain' ),
+		"type"    => "text",
+		"class"   => "nohtml",
+		"std"    => "");		
 					
 		return $options;	
 }

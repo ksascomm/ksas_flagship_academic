@@ -12,7 +12,7 @@ abstract class KSAS_Search {
      * @param string $query raw search query
      * @returns KSAS_Search_Results
      */
-    abstract public function query($query, $baseQueryURL, $resultsPageNum = 1, $resultsPerPage = 10);
+    abstract public function query($query, $collection_name, $baseQueryURL, $resultsPageNum = 1, $resultsPerPage = 10);
 }
 
 /**

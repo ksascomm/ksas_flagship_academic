@@ -82,4 +82,23 @@ if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flags
         });
    });
    </script>
+ <?php } ?>  
+<!***********EVENT CALENDAR**************>
+<?php $theme_option = flagship_sub_get_global_options();
+if ( is_page_template( 'template-calendar.php' ))  { ?>   				
+	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/easyXDM.min.js"></script>
+	<?php $calendar_url = $theme_option['flagship_sub_calendar_address'];
+		$url_for_script = "http://krieger.jhu.edu/calendar/calendar_holder.html?url=" . $calendar_url . "/"; ?>
+
+				<script>
+				    new easyXDM.Socket({
+				        remote: "<?php echo $url_for_script; ?>",
+				        container: document.getElementById("calendar_container"),
+				        onMessage: function(message, origin){
+				            this.container.getElementsByTagName("iframe")[0].style.height = message + "px";
+				            this.container.getElementsByTagName("iframe")[0].style.width = "100%";
+				        }
+				    });
+				</script>
+
 <?php } ?>

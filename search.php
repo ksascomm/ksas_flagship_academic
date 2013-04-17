@@ -5,7 +5,10 @@ Template Name: Search Results
 ?>
 <?php
 require_once TEMPLATEPATH . "/assets/functions/GoogleSearch.php";
-get_header(); ?>
+get_header(); 
+$theme_option = flagship_sub_get_global_options(); 
+$collection_name = $theme_option['flagship_sub_search_collection'];
+?>
 
 <div class="row wrapper radius10">
 	<div class="twelve columns">
@@ -19,12 +22,9 @@ try {
     if (array_key_exists('resultsPageNum', $_REQUEST)) {
         $resultsPageNum = $_REQUEST['resultsPageNum'];
     }
-    $theme_option = flagship_sub_get_global_options(); 
-    $collection_name = $theme_option['flagship_sub_search_collection'];
     $resultsPerPage = 10;
-    $baseQueryURL = 'http://search.johnshopkins.edu/search?site=krieger_collection&client=ksas_frontend';
-    $results = $search->query($_REQUEST['q'], $baseQueryURL, $resultsPageNum, $resultsPerPage);
-     
+    $baseQueryURL = 'http://search.johnshopkins.edu/search?&client=ksas_frontend';
+    $results = $search->query($_REQUEST['q'], $_REQUEST['site'], $baseQueryURL, $resultsPageNum, $resultsPerPage);
     $hits = $results->getNumHits();
     $displayQuery = $results->getDisplayQuery();
     $docTitle = 'Search Results';
@@ -37,6 +37,9 @@ try {
        <form class="search-form" action="<?php echo site_url('/search'); ?>" method="get">
                     <fieldset>
                         <input type="text" class="input-text" name="q" value="<?php echo $displayQuery ?>" />
+                        <label>Search:</label>
+                        <input type="radio" name="site" value="<?php echo $collection_name; ?>" checked>This site only
+                        <input type="radio" name="site" value="krieger_collection">All Krieger websites
                         <input type="submit" class="button blue_bg" value="Search Again" />
                     </fieldset>
        </form>        
@@ -113,9 +116,12 @@ try {
         ?>
              
             <p style="font-weight: bold;">There are no pages matching your search.</p>
-                   <form class="search-form" action="<?php echo site_url('/search'); ?>" method="get">
+       <form class="search-form" action="<?php echo site_url('/search'); ?>" method="get">
                     <fieldset>
                         <input type="text" class="input-text" name="q" value="<?php echo $displayQuery ?>" />
+                        <label class="inline bold">Search:</label>
+                        <input type="radio" name="site" value="<?php echo $collection_name; ?>" checked>This site only
+                        <input type="radio" name="site" value="krieger_collection">All Krieger websites
                         <input type="submit" class="button blue_bg" value="Search Again" />
                     </fieldset>
        </form>        

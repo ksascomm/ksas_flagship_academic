@@ -42,9 +42,14 @@
 			<div id="search-bar" class="offset-by-eight four columns">
 				<div class="row">
 					<div class="six columns">
+					<?php $theme_option = flagship_sub_get_global_options(); 
+							$collection_name = $theme_option['flagship_sub_search_collection'];
+					?>
+
 					<form method="GET" action="<?php echo site_url('/search'); ?>">
 						<input type="submit" class="icon-search" value="&#xe004;" />
 						<input type="text" name="q" placeholder="Search this site" />
+						<input type="hidden" name="site" value="<?php echo $collection_name; ?>" />
 					</form>
 					</div>
 						<?php wp_nav_menu( array( 

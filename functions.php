@@ -160,4 +160,5 @@ function delete_slider_transients() {
 		add_action('save_post','delete_slider_transients'); 
 	}
 
+include_once (TEMPLATEPATH . '/assets/functions/se_calendar_widget.php'); 
 ?>
