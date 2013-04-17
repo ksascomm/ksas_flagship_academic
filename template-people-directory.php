@@ -114,7 +114,6 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 							<?php if ( has_post_thumbnail()) { ?> 
 								<?php the_post_thumbnail('directory', array('class' => 'padding-five floatleft hide-for-small')); ?>
 							<?php } ?>			    
-
 									<h4 class="no-margin"><?php the_title(); ?></h4></a>
 									<?php if ( get_post_meta($post->ID, 'ecpt_position', true) ) : ?><h6><?php echo get_post_meta($post->ID, 'ecpt_position', true); ?></h6><?php endif; ?>
 									<?php if ( get_post_meta($post->ID, 'ecpt_degrees', true) ) : ?><?php echo get_post_meta($post->ID, 'ecpt_degrees', true); ?><?php endif; ?>
