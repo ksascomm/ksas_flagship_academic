@@ -45,7 +45,7 @@
   
   <?php //Call all the javascript
   		locate_template('parts-script-initiators.php', true, false); 
-  		include_once("parts-analytics.php") 
+  		include_once("parts-analytics.php"); 
   		wp_footer(); ?>
 	</body>
 </html>
