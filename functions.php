@@ -142,8 +142,7 @@ function delete_news_transients() {
 		for ($i=1; $i < 5; $i++)
 		    { delete_transient('faculty_books_query_' . $i); }
 		   
-		delete_transient('news_query');
-		
+		delete_transient('sub_news_query');
 }
 
 add_action('save_post','delete_news_transients');
@@ -160,5 +159,5 @@ function delete_slider_transients() {
 		add_action('save_post','delete_slider_transients'); 
 	}
 
-include_once (TEMPLATEPATH . '/assets/functions/se_calendar_widget.php'); 
+// include_once (TEMPLATEPATH . '/assets/functions/se_calendar_widget.php'); 
 ?>

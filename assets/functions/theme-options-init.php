@@ -119,7 +119,7 @@ function flagship_sub_add_menu(){
 	
 	// Display Settings Page link under the "Appearance" Admin Menu
 	// add_theme_page( $page_title, $menu_title, $capability, $menu_slug, $function);
-	$flagship_sub_settings_page = add_theme_page(__('Academic Theme Options'), __('Academic Theme Options','flagship_sub_textdomain'), 'edit_theme_options', FLAGSHIP_SUB_PAGE_BASENAME, 'flagship_sub_settings_page_fn');
+	$flagship_sub_settings_page = add_theme_page(__('Theme Options'), __('Theme Options','flagship_sub_textdomain'), 'edit_theme_options', FLAGSHIP_SUB_PAGE_BASENAME, 'flagship_sub_settings_page_fn');
 		// contextual help
 		// css & js
 /* 		add_action( 'load-'. $flagship_sub_settings_page, 'flagship_sub_settings_scripts' );	 */

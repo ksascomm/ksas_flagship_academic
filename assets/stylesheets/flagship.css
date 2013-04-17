@@ -794,6 +794,16 @@ footer a,
 	font-size:12px;
 }
 
+#copyright {
+	clear:left;
+}
+#copyright p {
+	text-align: center;
+	font-size: 12px;
+	color: #CCC;
+	margin: 20px 0 40px 0;
+}
+
 /*******Sidebar*********/
 .no-gutter {
 	padding: 0;
@@ -1011,6 +1021,7 @@ min-width: 240px;
   pointer-events: none;
   z-index: 1;
 }
+
 
 .isotope,
 .isotope .isotope-item {
