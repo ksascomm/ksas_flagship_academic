@@ -70,9 +70,9 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 						$count_roles =  count($roles);
 						if ( $count_roles > 0 ) { ?>
 							<div class="row filter option-set" data-filter-group="role">
-									<button class="radio"><a href="#" data-filter="" class="selected">View All</a></button>
+									<div class="button radio"><a href="#" data-filter="" class="selected">View All</a></div>
 								<?php foreach ( $roles as $role ) { ?>
-									<button class="radio"><a href="#" data-filter=".<?php echo $role->slug; ?>"><?php echo $role->name; ?></a></button>
+									<div class="button radio"><a href="#" data-filter=".<?php echo $role->slug; ?>"><?php echo $role->name; ?></a></div>
 								<?php } ?>
 							</div>
 						<?php } ?>
@@ -89,9 +89,9 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 						$count_filters =  count($filters);
 						if ( $count_filters > 0 ) { ?>
 							<div class="row filter option-set" data-filter-group="expertise">
-									<button class="radius10 yellow_bg"><a href="#" class="black" data-filter="" class="selected">View All</a></button>
+									<div class="button radius10 yellow_bg"><a href="#" class="black" data-filter="" class="selected">View All</a></div>
 								<?php foreach ( $filters as $filter ) { ?>
-									<button class="radius10 yellow_bg"><a href="#" class="black" data-filter=".<?php echo $filter->slug; ?>"><?php echo $filter->name; ?></a></button>
+									<div class="button radius10 yellow_bg"><a href="#" class="black" data-filter=".<?php echo $filter->slug; ?>"><?php echo $filter->name; ?></a></div>
 								<?php } ?>
 							</div>
 						<?php } ?>

@@ -84,7 +84,7 @@ function flagship_sub_options_page_fields() {
 		"desc"    => __( 'Enter your Google Analytics ID ie. UA-2497774-9', 'flagship_sub_textdomain' ),
 		"type"    => "text",
 		"class"   => "nohtml",
-		"std"    => "UA-2497774-9");
+		"std"    => "UA-40512757-1");
 	$options[7] =
 	array (		
 		"section" => "technical_section",
@@ -127,7 +127,6 @@ function flagship_sub_options_page_fields() {
 		"title"   => __( 'Department Address', 'flagship_sub_textdomain' ),
 		"desc"    => __( 'Enter the department address', 'flagship_sub_textdomain' ),
 		"type"    => "textarea",
-		"class"   => "inlinehtml",
 		"std"    => "Zanvyl Krieger School of Arts & Sciences");			
 		return $options;
 		

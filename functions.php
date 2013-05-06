@@ -126,38 +126,33 @@ function get_the_roles($post) {
 
 /**********DELETE TRANSIENTS******************/
 
-function delete_people_transients() {
-	
-		if($_POST[post_type] == 'people') {
+function delete_academic_transients($post_id) {
+	global $post;
+	if (isset($_GET['post_type'])) {		
+		$post_type = $_GET['post_type'];
+	}
+	else {
+		$post_type = $post->post_type;
+	}
+	switch($post_type) {
+		case 'people' :
 			delete_transient('faculty_people_query');
 			delete_transient('research_people_query');
 			delete_transient('staff_people_query');
-		}
-	}
-if(post_type_exists('people')) {	
-	add_action('save_post','delete_people_transients');
-}
-
-function delete_news_transients() {
-		for ($i=1; $i < 5; $i++)
-		    { delete_transient('faculty_books_query_' . $i); }
-		   
-		delete_transient('sub_news_query');
-}
-
-add_action('save_post','delete_news_transients');
-
-
-
-function delete_slider_transients() {
-			if($_POST[post_type] == 'slider') {
+		break;
+		
+		case 'post' :
+			for ($i=1; $i < 5; $i++)
+			    { delete_transient('faculty_books_query_' . $i); }
+			   
+			delete_transient('sub_news_query');
+		break;
+		
+		case 'slider' :
 			delete_transient('slider_query');
-		}
+		break;
 	}
+}
+	add_action('save_post','delete_academic_transients');
 
-	if(post_type_exists('slider')) {		
-		add_action('save_post','delete_slider_transients'); 
-	}
-
-// include_once (TEMPLATEPATH . '/assets/functions/se_calendar_widget.php'); 
 ?>

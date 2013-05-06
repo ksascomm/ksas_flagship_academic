@@ -14,7 +14,7 @@
 				'fallback_cb' => 'foundation_page_menu', 
 				'container' => 'nav', 
 				'container_id' => 'quicklinks',
-				'container_class' => 'three column', 
+				'container_class' => 'three mobile-four column', 
 				'walker' => new foundation_navigation() ) ); 
 			
 			//Return to current site
@@ -23,14 +23,14 @@
 			//Footer Links
 			 wp_nav_menu( array( 
 				'theme_location' => 'footer_links', 
-				'menu_class' => 'inline-list', 
+				'menu_class' => 'inline-list hide-for-small', 
 				'fallback_cb' => 'foundation_page_menu', 
 				'container' => 'nav', 
 				'container_class' => 'seven column', 
 				'walker' => new foundation_navigation() ) ); 
 		 ?>
 		<!-- Social Media -->
-		<nav class="two column iconfont" id="social-media">
+		<nav class="two column iconfont hide-for-small" id="social-media">
 			<a href="http://facebook.com/jhuksas" title="Facebook"><span class="icon-facebook"></span></a>
 			<a href="http://vimeo.com/jhuksas" title="Vimeo"><span class="icon-vimeo"></span></a>
 		</nav>

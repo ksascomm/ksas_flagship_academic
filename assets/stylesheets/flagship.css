@@ -64,6 +64,7 @@ ol {
 
 /******* Reusable Classes ************/
 .wrapper {
+	background: rgb(255,255,255);
 	background: rgba(255,255,255, 0.95);
 	padding: 30px;
 	margin-top: 87px;
@@ -72,6 +73,13 @@ ol {
 
 .sidebar_bg {
 	background: #cecece;
+background: -moz-linear-gradient(left, rgba(252,252,252,1) 0%, rgba(255,255,255,1) 66.6%, rgba(206,206,206,1) 66.7%, rgba(206,206,206,1) 100%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(252,252,252,1)), color-stop(66.6%,rgba(255,255,255,1)), color-stop(66.7%,rgba(206,206,206,1)), color-stop(100%,rgba(206,206,206,1)));
+background: -webkit-linear-gradient(left, rgba(252,252,252,1) 0%,rgba(255,255,255,1) 66.6%,rgba(206,206,206,1) 66.7%,rgba(206,206,206,1) 100%);
+background: -o-linear-gradient(left, rgba(252,252,252,1) 0%,rgba(255,255,255,1) 66.6%,rgba(206,206,206,1) 66.7%,rgba(206,206,206,1) 100%);
+background: -ms-linear-gradient(left, rgba(252,252,252,1) 0%,rgba(255,255,255,1) 66.6%,rgba(206,206,206,1) 66.7%,rgba(206,206,206,1) 100%);
+background: linear-gradient(to right, rgba(252,252,252,1) 0%,rgba(255,255,255,1) 66.6%,rgba(206,206,206,1) 66.7%,rgba(206,206,206,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2fcfcfc', endColorstr='#cecece',GradientType=1 );
 	margin-bottom: 60px;
 }
 
@@ -93,6 +101,7 @@ ol {
 	opacity: .9;
 }
 .black_bg {
+	background: rgb(0, 0, 0);
 	background: rgba(0, 0, 0, .75);
 }
 
@@ -113,47 +122,47 @@ ol {
 }
 
 .blue_bg,
-.color1 {
+#SECalendar .color1 {
 	background: #3478b6;
 }
 
 .dark_blue_bg,
-.color8 {
+#SECalendar .color8 {
 	background:#003366;
 }
 
 .grey_bg,
-.color9 {
+#SECalendar .color9 {
 	background: #666;
 }
 
 .rust_bg,
-.color7 {
+#SECalendar .color7 {
 	background: #663333;
 }
 .green_bg,
-.color4{
+#SECalendar .color4{
 	background: #006666;
 }
 
 .purple_bg,
-.color5 {
+#SECalendar .color5 {
 	background: #333366;
 }
 
 .fushia,
-.color6  {
+#SECalendar .color6  {
 	background: #993366;
 }
 
 .yellow_bg,
-.color2 {
+#SECalendar .color2 {
 	background: #dbb003;
 }
 
 .orange_bg,
 .orange_bg.button:hover,
-.color3 {
+#SECalendar .color3 {
 	background: #cc6600;
 }
 
@@ -199,6 +208,9 @@ button:hover,
 button a,
 button a:hover,
 button a:visited,
+.button a,
+.button a:hover,
+.button a:visited,
 .select-buttons li a,
 .select-buttons li a:hover,
 .select-buttons li a:visited,
@@ -307,6 +319,7 @@ button a:visited,
 }
 
 .text-shadow {
+	text-shadow: 2px 2px 2px rgb(0, 0, 0);
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, .75);
 }
 
@@ -446,6 +459,7 @@ nav ul {
 	padding:0; 
 	margin:0; 
 	list-style-type: none;
+	background: rgb(51, 102, 153);
 	background: rgba(51, 102, 153, .9);
 	-webkit-border-bottom-right-radius: 	10px;
 	-moz-border-radius-bottomright: 		10px;
@@ -489,6 +503,7 @@ nav ul {
 #main_nav ul li.current_page_ancestor ul,
 #main_nav ul li.current_page_item ul {
 	visibility:visible;
+	background: rgb(0,0,0);
 	background: rgba(0,0,0,.75); 
 	width: 100%;
 	max-width:1000px; 
@@ -607,6 +622,7 @@ ul.breadcrumbs a{
 	margin: 0 auto;
 }
 #logo_nav {
+	background:	rgb(51, 102, 153);
 	background: rgba(51, 102, 153, .9);
 	width: 100%;
 	max-width:1000px; 
@@ -666,13 +682,14 @@ ul.breadcrumbs a{
 #search-bar input[type="text"] {
     height: 31px;
     margin-bottom: 0px;
+        background: rgb(255,255,255);
     background: rgba(255,255,255,0.75);
-    -webkit-border-top-right-radius: 	7px;
-    -webkit-border-bottom-right-radius: 7px;
-    -moz-border-radius-topright: 		7px;
-    -moz-border-radius-bottomright: 	7px;
-    border-top-right-radius: 			7px;
-    border-bottom-right-radius: 		7px;
+    -webkit-border-top-right-radius: 	0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-topright: 		0px;
+    -moz-border-radius-bottomright: 	0px;
+    border-top-right-radius: 			0px;
+    border-bottom-right-radius: 		0px;
     display: inline;
     float:left;
     width:75%;
@@ -747,11 +764,12 @@ footer a,
 
 #quicklinks .flyout { 
 	background: #f2f2f2;
-	padding: 15px 0; margin: 0; 
+	padding: 0; 
+	margin: 0; 
 	border: 1px solid #d9d9d9; 
 	position: absolute; 
 	left: 0px; 
-	width: 180px; 
+	width: 200px; 
 	z-index: 40; 
 	-webkit-box-shadow: none; 
 	-moz-box-shadow: none; 
@@ -895,16 +913,25 @@ ul.nav li ul li:before {
 	height:20px;
 }
 
-.hub img {
+.hub img,
+.ksas_books img {
 	max-width: 75px;
 	float: left;
 	margin-right: 10px;
 }
 
-.hub h6 {
+.hub h6,
+.ksas_books h6,
+.textwidget h6 {
 	margin-top: 0;
+	text-transform: none;
+	font-size: 13px;
+	letter-spacing: normal;
 }
-.hub article {
+
+.textwidget,
+.hub article,
+.ksas_books article {
 	padding: 3px 20px;
 }
 /******* Home ************/
@@ -1051,6 +1078,7 @@ min-width: 240px;
 
 
 #fields_search fieldset {
+	background: rgb(0,0,0);
 	background: rgba(0,0,0,0.15);
 	padding-bottom:30px;
 	border:none;
@@ -1233,11 +1261,11 @@ ul.nav:last-child {
 }
 #SECalendarListWrapper .SECalendarEventLocation:before {
 	content: 'Location: ';
-	color: #cc6600;
+	color: #663333;
 }
 #SECalendarListWrapper .SECalendarEventTime:before {
 	content: 'Time: ';
-	color: #cc6600;
+	color: #663333;
 }
 #SECalendarListWrapper .SECalendarEventLocation,
 #SECalendarListWrapper .SECalendarNoEvent {
@@ -1247,7 +1275,7 @@ ul.nav:last-child {
 	padding: 0 10px 4px 10px;
 }
 #SECalendarListWrapper .SECalendarEventDate {
-	color:#663333;
+	color:#000;
 	font-size:20px;
 	margin-bottom:10px;
 	font-family:"Myriad W01 Bd";
@@ -1266,7 +1294,7 @@ ul.nav:last-child {
 #SECalendarListWrapper .SECalendarEventName,
 #SECalendarListWrapper .SECalendarNoEvent,
 #SECalendarListWrapper .SECalendarEventName a {
-	color: #3399ff;
+	color: #3478b6;
 	font-size:14px;
 	font-weight:normal;
 	font-family: "Myriad W01 Regular", Arial, sans-serif;
@@ -1426,6 +1454,7 @@ color:#fff;
 }
 
 #directory li:nth-child(odd) {
+	background: #f7f7f7;
 	background: rgba(0,0,0,0.05);
 }
 
@@ -1522,6 +1551,7 @@ div.orbit-wrapper div.timer {
 }
 
 .slide summary {
+	background: rgb(0,0,0)
 	background: rgba(0,0,0,.9)
 }
 
@@ -1560,7 +1590,9 @@ div.orbit-wrapper div.timer {
 }
 
 
-
+#search-results ul {
+	list-style: none;
+}
 /******* Icons ******/
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
@@ -1691,30 +1723,22 @@ a[href*=".pdf"]:before {
 .icon-thumbs-down:before {
 	content: "\e023";
 }
-.icon-file-pdf:before,
-a[href$=".pdf"]:after {
+.icon-file-pdf:before{
 	content: "\e024";
 }
-.icon-file-word:before,
-a[href$=".doc"]:after,
-a[href$=".docx"]:after {
+.icon-file-word:before {
 	content: "\e025";
 }
-.icon-file-excel:before,
-a[href$=".xls"]:after,
-a[href$=".xlsx"]:after {
+.icon-file-excel:before {
 	content: "\e026";
 }
-.icon-file-zip:before,
-a[href$=".zip"]:after {
+.icon-file-zip:before {
 	content: "\e027";
 }
 .icon-file-openoffice:before {
 	content: "\e028";
 }
-.icon-file-powerpoint:before,
-a[href$=".ppt"]:after,
-a[href$=".pptx"]:after {
+.icon-file-powerpoint:before {
 	content: "\e029";
 }
 .icon-play:before {
@@ -1762,10 +1786,9 @@ a[href$=".pptx"]:after {
 }
 
 }
-@media only screen and (min-width: 767px) {
-
-}
 @media only screen and (max-width: 767px) {
+		.sidebar_bg {background: #cecece !important;}
+
 		#main_nav ul li:nth-child(5) {
 			clear: left;
 		}
@@ -1803,6 +1826,10 @@ a[href$=".pptx"]:after {
 	}
 	#main_nav,
 	.hide-for-mobile {display: none !important;}
+	
+	#quicklinks li.has-flyout {
+		width: 100%;
+	}
 	
 }
 

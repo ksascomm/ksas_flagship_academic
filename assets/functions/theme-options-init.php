@@ -381,7 +381,8 @@ function flagship_sub_validate_options($input) {
 								'b' => array(),
 								'em' => array (), 
 								'i' => array (),
-								'strong' => array()
+								'strong' => array(),
+								'br' => array()
 							);
 							
 							$input[$option['id']] 		= trim($input[$option['id']]); // trim whitespace
@@ -495,7 +496,7 @@ function flagship_sub_validate_options($input) {
 							
 							$input[$option['id']] 		= trim($input[$option['id']]); // trim whitespace
 							$input[$option['id']] 		= force_balance_tags($input[$option['id']]); // find incorrectly nested or missing closing tags and fix markup
-							$input[$option['id']] 		= wp_kses( $input[$option['id']], $allowed_html); // need to add slashes still before sending to the database
+							//$input[$option['id']] 		= wp_kses( $input[$option['id']], $allowed_html); // need to add slashes still before sending to the database
 							$valid_input[$option['id']] = addslashes($input[$option['id']]);							
 						break;
 					}

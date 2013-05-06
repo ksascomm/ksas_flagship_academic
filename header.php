@@ -58,7 +58,7 @@
 							'fallback_cb' => 'foundation_page_menu', 
 							'container' => 'div',
 							'container_id' => 'search_links', 
-							'container_class' => 'six columns links inline',
+							'container_class' => 'six columns links inline hide-for-small',
 							'depth' => 1,
 							'items_wrap' => '%3$s', )); ?> 
 				</div>	
@@ -88,7 +88,7 @@
 		<div class="row show-for-small black_bg radius10" id="mobile_nav_container">
 
 			<?php wp_nav_menu( array( 
-				'theme_location' => 'search_bar', 
+				'theme_location' => 'main_nav', 
 				'menu_class' => '', 
 				'fallback_cb' => 'foundation_page_menu', 
 				'container' => 'div',

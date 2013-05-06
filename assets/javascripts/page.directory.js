@@ -1587,7 +1587,7 @@
 
 //***********DIRECTORY SCRIPTS***********
 var $j = jQuery.noConflict();
-$j(function() {
+$j(document).ready(function(){
 	//set isotope variables
    var $container = $j('#directory');
    filters = {};

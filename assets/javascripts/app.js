@@ -23,7 +23,7 @@
 })(jQuery, this);
 
 
-//***********For fields of study filters***********
+//***********For Isotope pages***********
 function getParameterByName(name)
 {
   name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -37,4 +37,3 @@ function getParameterByName(name)
 }
 
 
-   

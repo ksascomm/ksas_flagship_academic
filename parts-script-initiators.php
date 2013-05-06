@@ -1,3 +1,7 @@
+<!--
+For development environment search and replace javascripts/min. for javascripts/
+For production environment search and replace javascripts/ for javascripts/min.
+-->
 <!***********ALL PAGES**************>  
 <script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.foundation.js"></script> 
 <script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/app.js"></script>
@@ -63,7 +67,7 @@ if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flags
 <!***********EVENT CALENDAR**************>
 <?php $theme_option = flagship_sub_get_global_options();
 if ( is_page_template( 'template-calendar.php' ))  { ?>   				
-	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/easyXDM.min.js"></script>
+	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.easyXDM.js"></script>
 	<?php $calendar_url = $theme_option['flagship_sub_calendar_address'];
 		$url_for_script = "http://krieger.jhu.edu/calendar/calendar_holder.html?url=" . $calendar_url . "/"; ?>
 
