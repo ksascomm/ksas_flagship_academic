@@ -2,4 +2,3 @@
 {name=name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");var regexS="[\\?&]"+name+"=([^&#]*)";var regex=new RegExp(regexS);var results=regex.exec(window.location.search);if(results==null)
 return"";else
 return decodeURIComponent(results[1].replace(/\+/g," "));}
-var $q=jQuery.noConflict();$q(window).bind("load",function(){var highestCol=Math.max($q('#sidebar').height(),$q('.wrapper').height());$q('#sidebar, .wrapper').height(highestCol);});

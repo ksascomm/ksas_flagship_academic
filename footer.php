@@ -32,7 +32,7 @@
 		<!-- Social Media -->
 		<nav class="two column iconfont hide-for-small" id="social-media">
 			<a href="http://facebook.com/jhuksas" title="Facebook"><span class="icon-facebook"></span></a>
-			<a href="http://vimeo.com/jhuksas" title="Vimeo"><span class="icon-vimeo"></span></a>
+			<a href="http://vimeo.com/channels/jhuksas" title="Vimeo"><span class="icon-vimeo"></span></a>
 		</nav>
 		
 		<!-- Copyright and Address -->

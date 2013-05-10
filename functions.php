@@ -143,9 +143,10 @@ function delete_academic_transients($post_id) {
 		
 		case 'post' :
 			for ($i=1; $i < 5; $i++)
-			    { delete_transient('faculty_books_query_' . $i); }
+			    { delete_transient('faculty_books_query_' . $i);
+			      delete_transient('news_archive_query_' . $i); }
 			   
-			delete_transient('sub_news_query');
+			delete_transient('news_query');
 		break;
 		
 		case 'slider' :

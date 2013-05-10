@@ -4,7 +4,7 @@
 		<!-- Start Navigation for Sibling Pages -->		<!-- END Featured Image --> <?php 
 		if ( is_page() && has_post_thumbnail()  ) {  
 			wp_reset_query();
-				the_post_thumbnail('full', array('class'	=> "offset-gutter radius-topright")); 
+				the_post_thumbnail('full', array('class'	=> "offset-gutter radius-topright featured hide-for-small")); 
 			 } 
 		 ?>
 

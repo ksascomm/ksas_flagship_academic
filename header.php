@@ -66,11 +66,9 @@
 		</div>
 		<div class="row">
 			<div class="twelve columns hide-for-small" id="logo_nav">
-				<a href="<?php echo network_home_url(); ?>" title="Krieger School of Arts & Sciences">
-					<img src="<?php echo get_template_directory_uri() ?>/assets/images/logo.png" class="floatleft" />
-				</a>
+				<li class="logo"><a href="<?php echo network_home_url(); ?>" title="Krieger School of Arts & Sciences">Krieger School of Arts & Sciences</a></li>
 				
-				<a href="<?php echo site_url(); ?>"><h1 class="white"><span class="small"><?php echo get_bloginfo ( 'description' ); ?></span></br>
+				<a href="<?php echo site_url(); ?>"><h1 class="white"><span class="small"><?php echo get_bloginfo ( 'description' ); ?></span>
 					<?php echo get_bloginfo( 'title' ); ?></h1></a>
 			
 			</div>

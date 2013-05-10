@@ -15,13 +15,13 @@
 <?php while ($slider_query->have_posts()) : $slider_query->the_post(); ?>
 <a href="<?php echo get_post_meta($post->ID, 'ecpt_urldestination', true); ?>">
 <div class="slide">
-	<img src="<?php echo get_post_meta($post->ID, 'ecpt_slideimage', true); ?>" class="radius-top" />
 	<?php if($theme_option['flagship_sub_slider_style'] == "vertical") { 
 		 	locate_template('parts-vertical-slider.php', true, false); 	
 		 	}
 	 elseif($theme_option['flagship_sub_slider_style'] == "horizontal") { 
 	 		locate_template('parts-horizontal-slider.php', true, false); 
 	  } ?>
+	<img src="<?php echo get_post_meta($post->ID, 'ecpt_slideimage', true); ?>" class="radius-top" />
 </div>
 </a>
 <?php endwhile; ?>

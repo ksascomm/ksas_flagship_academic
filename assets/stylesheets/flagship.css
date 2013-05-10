@@ -122,47 +122,56 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2fcfcfc', e
 }
 
 .blue_bg,
-#SECalendar .color1 {
+#SECalendar .color1,
+.color1 {
 	background: #3478b6;
 }
 
 .dark_blue_bg,
-#SECalendar .color8 {
+#SECalendar .color8,
+.color8 {
 	background:#003366;
 }
 
 .grey_bg,
-#SECalendar .color9 {
+#SECalendar .color9,
+.color9 {
 	background: #666;
 }
 
 .rust_bg,
-#SECalendar .color7 {
+#SECalendar .color7,
+.color7 {
 	background: #663333;
 }
 .green_bg,
-#SECalendar .color4{
+#SECalendar .color4,
+.color4{
 	background: #006666;
 }
 
 .purple_bg,
-#SECalendar .color5 {
+#SECalendar .color5,
+.color5 {
 	background: #333366;
 }
 
 .fushia,
-#SECalendar .color6  {
+#SECalendar .color6,
+.color6  {
 	background: #993366;
 }
 
 .yellow_bg,
-#SECalendar .color2 {
+#SECalendar .color2,
+.color2 {
 	background: #dbb003;
 }
 
 .orange_bg,
 .orange_bg.button:hover,
-#SECalendar .color3 {
+#SECalendar .color3,
+.color3 {
 	background: #cc6600;
 }
 
@@ -193,7 +202,6 @@ button,
 	font-weight: normal;
 }
 
-.button,
 .select-buttons li {
 	display: inline;
 }
@@ -217,6 +225,30 @@ button a:visited,
 .SECalendarPrevMonth a,
 .SECalendarNextMonth a {
 	color: #fff;
+}
+
+.button.radio {
+	font-size: 14px;
+	opacity: 1;
+	padding: 5px;
+	margin-right: 0;
+	text-transform: capitalize;
+}
+
+.button.radio a {
+	color: #FFF;
+}
+
+.button.radio a.selected,
+.button.radio a:hover {
+ -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;
+ background-color: #3478b6;
+ color: #FFF;
+}
+
+.button a.selected,
+.button.radio a:hover {
+	text-shadow: 1px 1px 1px #000;
 }
 
 .radius10 {
@@ -470,12 +502,12 @@ nav ul {
 	z-index:100;
 	width: 100%;
 	max-width:1000px; 
-	height:72px; 
+	height:62px; 
 }
 
 #main_nav ul li {
 	float:left; 
-	line-height: 72px;
+	line-height: 62px;
 	padding: 0 25px;
 	
 }
@@ -490,7 +522,7 @@ nav ul {
 #main_nav ul li ul {
 	visibility:hidden; 
 	position:absolute; 
-	top:72px; 
+	top:62px; 
 	left:0; 
 }
 
@@ -507,7 +539,7 @@ nav ul {
 	background: rgba(0,0,0,.75); 
 	width: 100%;
 	max-width:1000px; 
-	min-height:72px;
+	min-height:62px;
 	-webkit-border-radius:  10px;
 	-moz-border-radius: 	10px;
 	border-radius: 			10px;
@@ -520,7 +552,7 @@ nav ul {
 }
 
 #main_nav ul li:hover ul li ul,
-#main_nav ul li a:hover ul li a ul {visibility:hidden; position:absolute; left:0; top:72px; }
+#main_nav ul li a:hover ul li a ul {visibility:hidden; position:absolute; left:0; top:62px; }
 
 #main_nav ul li:hover ul li a,
 #main_nav ul li a:hover ul li a {display:block; color:#fff;}
@@ -599,21 +631,49 @@ ul.breadcrumbs a{
 
 /******* Header ************/
 
-#main_nav li.logo,
+#logo_nav li.logo,
 .mobile-logo {
-	width: 237px;
-	height: 60px;
+	width: 222px;
+	height: 162px;
 	padding: 0;
+	position: absolute;
+	margin-top:-61px;
+	-webkit-border-bottom-right-radius: 20px;
+	-webkit-border-bottom-left-radius: 	20px;
+	-moz-border-radius-bottomright:		20px;
+	-moz-border-radius-bottomleft: 		20px;
+	border-bottom-right-radius: 		20px;
+	border-bottom-left-radius: 			20px;
 }
-#main_nav li.logo a,
+
+#logo_nav li.logo a {
+	background: url('../images/logo.png') no-repeat top;
+	width: 182px;
+	height: 142px;
+	text-indent: -9999px;
+	position: absolute;
+	top:20px;
+	left:20px;
+}
+.mobile-logo {
+	position: relative;
+	height: 122px;
+}
 .mobile-logo a {
 	background: url('../images/logo.png') no-repeat top;
-	width: 237px;
+	width: 222px;
 	height: 133px;
 	margin-top:-61px;
 	text-indent: -9999px;
 	position: absolute;
 }
+
+#logo_nav li.logo {
+	background: rgb(0,0,0);
+	background: rgba(0,0,0,.75);
+	margin-left: 24px;
+}
+
 .mobile-logo a {
 	margin-top: 0;
 }
@@ -633,11 +693,16 @@ ul.breadcrumbs a{
 	-moz-border-radius-topleft: 		10px;
 	border-top-left-radius: 			10px;
 	margin:0;
-	
+	padding-bottom: 20px;
 	}
 #logo_nav h1 {
-	margin:0px;
-	line-height: .8em;
+	margin: 30px 0 0 280px;
+	line-height: 1.1em;
+}
+
+#logo_nav h1 span.small {
+	display: block;
+	line-height: 1em;
 }
 
 #search-bar {
@@ -827,6 +892,10 @@ footer a,
 	padding: 0;
 }
 
+img.featured {
+	float:right;
+	max-width: 110%;
+}
 #sidebar_header {
 	padding:12px 15px 10px 0;
 	margin-bottom: 15px;
@@ -893,7 +962,8 @@ ul.nav li ul li:before {
 
 .textwidget,
 .menu-research-links-container,
-.hub {
+.hub,
+.frm_form_widget .frm_forms {
 	margin: 0 20px 40px 20px;
 }
 
@@ -1078,7 +1148,7 @@ min-width: 240px;
 
 
 #fields_search fieldset {
-	background: rgb(0,0,0);
+	background: #ccc;
 	background: rgba(0,0,0,0.15);
 	padding-bottom:30px;
 	border:none;
@@ -1228,10 +1298,6 @@ ul.nav:last-child {
 	font-size:12px;
 }
 
-/**************NEWS & EVENTS****************/
-
-
-
 /**************CALENDAR****************/
 .SEClear {
 	float:left;
@@ -1312,7 +1378,6 @@ ul.nav:last-child {
 .SECalendarEventDetails {
 	border-color: transparent;
 	padding: 5px 10px;
-	margin-bottom: 20px;
 	-webkit-border-radius:  10px;
 	-moz-border-radius: 	10px;
 	border-radius: 			10px;
@@ -1383,6 +1448,7 @@ a.rssLink,
 
 .SECalendarMonth {
 	font-size: 18px;
+	text-align: center;
 }
 
 .SECalendarDay a {
@@ -1468,6 +1534,7 @@ li.person {
 	min-height: 95px;
 	padding-left:20px;
 	padding-top: 3px;
+	list-style: none;
 }
 
 li.person img {

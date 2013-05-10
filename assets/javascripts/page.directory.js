@@ -1597,7 +1597,7 @@ $j(document).ready(function(){
         layoutMode : 'fitRows'
     });
     // filter buttons
-    $j('.filter button a').click(function(){
+    $j('.filter .button a').click(function(){
       var $this = $j(this);
       // don't proceed if already selected
       if ( $this.hasClass('selected') ) {
