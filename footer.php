@@ -14,7 +14,7 @@
 				'fallback_cb' => 'foundation_page_menu', 
 				'container' => 'nav', 
 				'container_id' => 'quicklinks',
-				'container_class' => 'three mobile-four column', 
+				'container_class' => 'three mobile-four column hide-for-small', 
 				'walker' => new foundation_navigation() ) ); 
 			
 			//Return to current site
@@ -39,13 +39,17 @@
 		<div class="row" id="copyright" role="content-info">
   			<p>&copy; <?php print date('Y'); ?> Johns Hopkins University, <?php echo $theme_option['flagship_sub_copyright'];?></p>
   		</div>
+  		<div class="row">
+	  		<div class="four columns centered">
+  				<a href="http://www.jhu.edu"><img src="<?php echo get_template_directory_uri() ?>/assets/images/university.jpg" /></a>
+  			</div>
+  		</div>
 
   	</div>
   </footer>
   
   <?php //Call all the javascript
   		locate_template('parts-script-initiators.php', true, false); 
-  		include_once("parts-analytics.php"); 
   		wp_footer(); ?>
 	</body>
 </html>

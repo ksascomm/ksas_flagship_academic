@@ -12,7 +12,7 @@
                         <input type="text" class="input-text" name="q" />
                         <label class="inline bold">Search:</label>
                         <input type="radio" name="site" value="<?php echo $collection_name; ?>" checked>This site only
-                        <input type="radio" name="site" value="krieger_collection">All Krieger websites
+                        <input type="radio" name="site" value="krieger_collection">All JHU websites
                         <input type="submit" class="button blue_bg" value="Search Again" />
                     </fieldset>
        </form>        

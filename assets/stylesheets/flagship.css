@@ -122,55 +122,56 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2fcfcfc', e
 }
 
 .blue_bg,
-#SECalendar .color1,
+#SECalendar .SECalendarEventDetails,
+#SECalendar .SECalendarEventDetails.color1,
 .color1 {
 	background: #3478b6;
 }
 
 .dark_blue_bg,
-#SECalendar .color8,
+#SECalendar .SECalendarEventDetails.color8,
 .color8 {
 	background:#003366;
 }
 
 .grey_bg,
-#SECalendar .color9,
+#SECalendar .SECalendarEventDetails.color9,
 .color9 {
 	background: #666;
 }
 
 .rust_bg,
-#SECalendar .color7,
+#SECalendar .SECalendarEventDetails.color7,
 .color7 {
 	background: #663333;
 }
 .green_bg,
-#SECalendar .color4,
+#SECalendar .SECalendarEventDetails.color4,
 .color4{
 	background: #006666;
 }
 
 .purple_bg,
-#SECalendar .color5,
+#SECalendar .SECalendarEventDetails.color5,
 .color5 {
 	background: #333366;
 }
 
 .fushia,
-#SECalendar .color6,
+#SECalendar .SECalendarEventDetails.color6,
 .color6  {
 	background: #993366;
 }
 
 .yellow_bg,
-#SECalendar .color2,
+#SECalendar .SECalendarEventDetails.color2,
 .color2 {
 	background: #dbb003;
 }
 
 .orange_bg,
 .orange_bg.button:hover,
-#SECalendar .color3,
+#SECalendar .SECalendarEventDetails.color3,
 .color3 {
 	background: #cc6600;
 }
@@ -247,8 +248,10 @@ button a:visited,
 }
 
 .button a.selected,
-.button.radio a:hover {
-	text-shadow: 1px 1px 1px #000;
+.button.radio a:hover,
+.button.radio a.selected {
+	color:#000;
+	text-shadow: 1px 1px 1px #FFF;
 }
 
 .radius10 {
@@ -884,7 +887,7 @@ footer a,
 	text-align: center;
 	font-size: 12px;
 	color: #CCC;
-	margin: 20px 0 40px 0;
+	margin: 20px 0 0px 0;
 }
 
 /*******Sidebar*********/
@@ -912,6 +915,9 @@ aside li,
 
 aside ul.nav li {
 	margin-left: 0;
+	padding-left: 45px;
+	text-indent: -25px;
+	padding-right: 15px;
 }
 .widget_title {
 	padding: 10px 0;
@@ -1537,10 +1543,23 @@ li.person {
 	list-style: none;
 }
 
+#directory li.person.sub-head {
+	min-height: 1px;
+	margin-bottom: 0;
+	background: none;
+	padding: 0;
+}
+
+li.person.sub-head h2 {
+	text-decoration: underline;
+	font-size: 28px;
+	margin: 0;
+}
 li.person img {
 	max-width: 90px;
 	clear: left;
 	float:left;
+	margin-bottom: 23px;
 }
 
 #LibraInsideDiv .statistic,
@@ -1847,6 +1866,159 @@ a[href*=".pdf"]:before {
 	content: "\f0ac";
 }
 
+/* #######################################################################
+
+	meanMenu
+	--------
+	
+	To be used with jquery.meanmenu.js by Chris Wharton (http://www.meanthemes.com/plugins/meanmenu/)
+
+####################################################################### */
+
+/* hide the link until viewport size is reached */
+a.meanmenu-reveal {
+display: none;
+}
+
+/* when under viewport size, .mean-container is added to body */
+.mean-container .mean-bar { 
+float: left;
+width: 100%;
+position: fixed;
+background: rgb(51,102,153);
+padding: 4px 0;
+min-height: 50px;
+z-index: 999999;
+}
+.mean-container a.meanmenu-reveal {
+height:25px;
+width: 100%;
+position: absolute;
+top: 0;
+right: 0;
+cursor: pointer;
+color: #fff;
+text-decoration: none;
+font-size: 16px;
+line-height: 22px;
+display: block;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 700;
+text-align: left;
+}
+.mean-container a.meanmenu-reveal h3 {
+	color: #FFF;
+	font-size: 18px;
+}
+
+.mean-container a.meanmenu-reveal span {
+display: block;
+background: #fff;
+height: 3px;
+margin-top: 3px;
+}
+.mean-container .mean-nav { 
+float: left;
+width: 100%;
+background: #0c1923;
+margin-top: 33px;
+}
+.mean-container .mean-nav ul {
+padding: 0;
+margin: 0;
+width: 100%;
+list-style-type: none;
+}
+.mean-container .mean-nav ul li {
+position: relative;
+float: left;
+width: 100%;
+line-height: 1em;
+border-bottom: 1px solid #383838;
+border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.mean-container .mean-nav ul li a {
+display: block;
+float: left;
+width: 90%;
+padding: 1em 5%;
+margin: 0;
+text-align: left;
+color: #fff;
+text-decoration: none;
+text-transform: uppercase;
+}
+.mean-container .mean-nav ul li li a {
+width: 80%;
+padding: 1em 10%;
+border-bottom: 1px solid #f1f1f1;
+border-bottom: 1px solid rgba(255,255,255,0.25);
+opacity: 0.75; 
+filter: alpha(opacity=75);
+text-shadow: none !important;
+visibility: visible;
+}
+.mean-container .mean-nav ul li.mean-last a {
+border-bottom: none;
+margin-bottom: 0;
+}
+.mean-container .mean-nav ul li li li a {
+width: 70%;
+padding: 1em 15%;
+}
+.mean-container .mean-nav ul li li li li a {
+width: 60%;
+padding: 1em 20%;
+}
+.mean-container .mean-nav ul li li li li li a {
+width: 50%;
+padding: 1em 25%;
+}
+.mean-container .mean-nav ul li a:hover { 
+background: #252525;
+background: rgba(255,255,255,0.1); 
+}
+.mean-container .mean-nav ul li a.mean-expand {
+width: 26px;
+height: 26px;
+border: none !important;
+padding: 12px !important;
+text-align: center;
+position: absolute;
+right: 0;
+top: 0;
+z-index: 2;
+font-weight: 700;
+}
+.mean-container .mean-nav ul li a.mean-expand:hover {
+background: none;
+}
+.mean-container .mean-push { 
+float: left;
+width: 100%;
+padding: 0;
+margin: 0;
+clear: both; 
+}
+.mean-nav .wrapper {
+width: 100%;
+padding: 0;
+margin: 0;
+}
+
+
+@media only screen and (max-width: 1024px) {
+#search-bar input[type="submit"],
+#field_search input[type="submit"] {
+	-webkit-border-top-left-radius: 	0px;
+	-webkit-border-bottom-left-radius: 	0px;
+	-moz-border-radius-topleft: 		0px;
+	-moz-border-radius-bottomleft: 		0px;
+	border-top-left-radius: 			0px;
+	border-bottom-left-radius: 			0px;	
+}
+}
+
 @media only screen and (max-width: 975px) {
 #main_nav ul li {
 	padding: 0 7px;
@@ -1854,6 +2026,9 @@ a[href*=".pdf"]:before {
 
 }
 @media only screen and (max-width: 767px) {
+		#logo_nav {
+			margin-top:50px;
+		}
 		.sidebar_bg {background: #cecece !important;}
 
 		#main_nav ul li:nth-child(5) {
@@ -1873,10 +2048,16 @@ a[href*=".pdf"]:before {
 		li.logo {
 			display:none;
 		}
+		.offset-top {
+			margin-top: 0 !important;
+		}
+		#caption{
+			display: none;
+		}
 }
 @media only screen and (max-width: 540px) {
 		#main_nav ul li {
-			padding: 0 20px;
+			padding: 0 5px;
 			width: auto;
 		}
 		.mobile-field {
@@ -1885,18 +2066,25 @@ a[href*=".pdf"]:before {
 		body.fields .row .mobile-two { 
 			width:100% !important; 
 		}
+
 }
 
 @media only screen and (max-width: 480px) {
 	button {
 		font-size: 14px;
 	}
-	#main_nav,
 	.hide-for-mobile {display: none !important;}
 	
 	#quicklinks li.has-flyout {
 		width: 100%;
 	}
+	.mean-container .mean-bar { 
+		background: #000;
+		position: relative;
+	}
+			#logo_nav {
+			margin-top:0;
+		}
 	
 }
 

@@ -8,25 +8,31 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title></title>
-  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title><?php create_page_title(); ?></title>
+  <link rel="shortcut icon" href="<?php echo get_template_directory_uri() ?>/assets/images/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo get_template_directory_uri() ?>/assets/images/apple-touch-icon-144x144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri() ?>/assets/images/apple-touch-icon-114x114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri() ?>/assets/images/apple-touch-icon-72x72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri() ?>/assets/images/apple-touch-icon-57x57-precomposed.png" />
+
   <!-- CSS Files: All pages -->
-  <script type="text/javascript" src="http://fast.fonts.com/jsapi/c5f514c7-d786-4bfb-9484-ea6c8fbd263f.js"></script>
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/stylesheets/foundation.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/stylesheets/min.foundation.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/stylesheets/flagship.css">
+  <script async type="text/javascript" src="http://fast.fonts.com/jsapi/c5f514c7-d786-4bfb-9484-ea6c8fbd263f.js"></script>
   <!-- CSS Files: Conditionals -->
   
   <!-- Modernizr and Jquery Script -->
-  <script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/modernizr.foundation.js"></script>
   <?php wp_enqueue_script('jquery'); ?> 
+  <script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/modernizr.foundation.js"></script>
   <?php wp_head(); ?>
 
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-
+  <?php include_once("parts-analytics.php"); ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -39,9 +45,9 @@
 		</div>
 	
 		<div class="row hide-for-print">
-			<div id="search-bar" class="offset-by-eight four columns">
+			<div id="search-bar" class="offset-by-seven five mobile-four columns">
 				<div class="row">
-					<div class="six columns">
+					<div class="six columns mobile-two">
 					<?php $theme_option = flagship_sub_get_global_options(); 
 							$collection_name = $theme_option['flagship_sub_search_collection'];
 					?>
@@ -58,7 +64,7 @@
 							'fallback_cb' => 'foundation_page_menu', 
 							'container' => 'div',
 							'container_id' => 'search_links', 
-							'container_class' => 'six columns links inline hide-for-small',
+							'container_class' => 'six columns links mobile-two inline hide-for-mobile',
 							'depth' => 1,
 							'items_wrap' => '%3$s', )); ?> 
 				</div>	
@@ -83,17 +89,4 @@
 				'depth' => 2,
 				'walker'=> new page_id_classes )); ?> 
 		</div>
-		<div class="row show-for-small black_bg radius10" id="mobile_nav_container">
-
-			<?php wp_nav_menu( array( 
-				'theme_location' => 'main_nav', 
-				'menu_class' => '', 
-				'fallback_cb' => 'foundation_page_menu', 
-				'container' => 'div',
-				'container_id' => 'mobile_nav', 
-				'container_class' => 'twelve columns',
-				'depth' => 2,
-				'walker' => new mobile_select_menu(),
-				'items_wrap' => '<select onchange="window.open(this.options[this.selectedIndex].value,\'_top\')">%3$s</select>', )); ?> 
-		</div>	
 		</header>

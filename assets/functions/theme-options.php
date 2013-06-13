@@ -127,7 +127,7 @@ function flagship_sub_options_page_fields() {
 		"title"   => __( 'Department Address', 'flagship_sub_textdomain' ),
 		"desc"    => __( 'Enter the department address', 'flagship_sub_textdomain' ),
 		"type"    => "textarea",
-		"std"    => "Zanvyl Krieger School of Arts & Sciences");			
+		"std"    => "Zanvyl Krieger School of Arts & Sciences");
 		return $options;
 		
 }

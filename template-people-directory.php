@@ -58,9 +58,6 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 		<div id="fields_search">
 			<form action="#">
 				<fieldset class="radius10">
-					<div class="row">
-						<h6>Search the directory:</h6>
-					</div>
 					<?php $roles = get_terms('role', array(
 						'orderby'       => 'name', 
 						'order'         => 'ASC',
@@ -80,6 +77,10 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 						<input type="submit" class="icon-search" placeholder="Search by name, title, and research interests" value="&#xe004;" />
 						<input type="text" name="search" id="id_search"  /> 
 					</div>
+					<div class="row">
+						<h6>Filter by Research Area:</h6>
+					</div>
+
 					<?php $filters = get_terms('filter', array(
 						'orderby'       => 'name', 
 						'order'         => 'ASC',
@@ -89,7 +90,7 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 						$count_filters =  count($filters);
 						if ( $count_filters > 0 ) { ?>
 							<div class="row filter option-set" data-filter-group="expertise">
-									<div class="button radius10 yellow_bg"><a href="#" class="black" data-filter="" class="selected">View All</a></div>
+									<div class="button radius10 yellow_bg"><a href="#" class="black selected" data-filter="" class="selected">Clear Filters</a></div>
 								<?php foreach ( $filters as $filter ) { ?>
 									<div class="button radius10 yellow_bg"><a href="#" class="black" data-filter=".<?php echo $filter->slug; ?>"><?php echo $filter->name; ?></a></div>
 								<?php } ?>
@@ -144,7 +145,7 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 		<!-- Research Query -->
 		<?php if($research_people_query->have_posts()) : ?>
 		<a name="research" id="research"></a>
-		<li class="person sub-head quicksearch-match"><h2 class="black">Research Staff</h2></li>
+		<li class="person sub-head research quicksearch-match"><h2 class="black">Research Staff</h2></li>
 		<?php while ($research_people_query->have_posts()) : $research_people_query->the_post(); ?>
 				<li class="person <?php echo get_the_directory_filters($post);?> <?php echo get_the_roles($post); ?>">
 					<div class="row">
@@ -180,7 +181,7 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 		<!-- Staff Query -->
 		<?php if($staff_people_query->have_posts()) : ?>
 		<a name="staff" id="staff"></a>
-		<li class="person sub-head quicksearch-match"><h2 class="black">Staff</h2></li>
+		<li class="person sub-head staff quicksearch-match"><h2 class="black">Staff</h2></li>
 		<?php while ($staff_people_query->have_posts()) : $staff_people_query->the_post(); ?>
 				<li class="person <?php echo get_the_directory_filters($post);?> <?php echo get_the_roles($post); ?>">
 					<div class="row">
