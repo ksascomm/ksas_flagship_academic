@@ -126,9 +126,9 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 											<span class="icon-printer"><?php echo get_post_meta($post->ID, 'ecpt_fax', true); ?></span>
 										<?php endif; ?>
 										<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : $email = get_post_meta($post->ID, 'ecpt_email', true); ?>
-											<span class="icon-mail"><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge($email); ?>">
+											<span class="icon-mail"><a href="mailto:<?php echo get_post_meta($post->ID, 'ecpt_email', true); ?>">
 											
-											<?php echo email_munge($email); ?> </a></span>
+											<?php echo get_post_meta($post->ID, 'ecpt_email', true); ?> </a></span>
 										<?php endif; ?>
 										<?php if ( get_post_meta($post->ID, 'ecpt_office', true) ) : ?>
 											<span class="icon-location"><?php echo get_post_meta($post->ID, 'ecpt_office', true); ?></span>
@@ -162,9 +162,9 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 											<span class="icon-printer"><?php echo get_post_meta($post->ID, 'ecpt_fax', true); ?></span>
 										<?php endif; ?>
 										<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : $email = get_post_meta($post->ID, 'ecpt_email', true); ?>
-											<span class="icon-mail"><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge($email); ?>">
+											<span class="icon-mail"><a href="mailto:<?php echo get_post_meta($post->ID, 'ecpt_email', true); ?>">
 											
-											<?php echo email_munge($email); ?> </a></span>
+											<?php echo get_post_meta($post->ID, 'ecpt_email', true); ?> </a></span>
 										<?php endif; ?>
 										<?php if ( get_post_meta($post->ID, 'ecpt_office', true) ) : ?>
 											<span class="icon-location"><?php echo get_post_meta($post->ID, 'ecpt_office', true); ?></span>
@@ -198,9 +198,9 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 											<span class="icon-printer"><?php echo get_post_meta($post->ID, 'ecpt_fax', true); ?></span>
 										<?php endif; ?>
 										<?php if ( get_post_meta($post->ID, 'ecpt_email', true) ) : $email = get_post_meta($post->ID, 'ecpt_email', true); ?>
-											<span class="icon-mail"><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge($email); ?>">
+											<span class="icon-mail"><a href="mailto<?php echo get_post_meta($post->ID, 'ecpt_email', true); ?>">
 											
-											<?php echo email_munge($email); ?> </a></span>
+											<?php echo get_post_meta($post->ID, 'ecpt_email', true); ?> </a></span>
 										<?php endif; ?>
 										<?php if ( get_post_meta($post->ID, 'ecpt_office', true) ) : ?>
 											<span class="icon-location"><?php echo get_post_meta($post->ID, 'ecpt_office', true); ?></span>

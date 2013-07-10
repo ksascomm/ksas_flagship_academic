@@ -17,12 +17,20 @@ blockquote,
 blockquote p,
 .italic {
 	font-family:"Myriad W01 It";
+	font-style: normal;
 }
 
 strong, b,
 .bold {
 	font-family:"Myriad W01 Bd";
 	font-weight: normal;
+}
+
+.b.em,
+.strong.em {
+	font-family:"Myriad W01 It";
+	font-weight: bold;
+	font-style: normal;
 }
 
 .iconfont {
@@ -471,6 +479,14 @@ p.lead,
 .lead {
 	line-height: 2em;
 }
+
+ul[data-clearing] li {
+	float: left;
+	border: #ccc solid 3px;
+	margin: 7px;
+	max-width: 75px;
+}
+
 /******* Navigation ************/
 nav ul {
 	list-style: none;
