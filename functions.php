@@ -139,6 +139,7 @@ function delete_academic_transients($post_id) {
 			delete_transient('faculty_people_query');
 			delete_transient('research_people_query');
 			delete_transient('staff_people_query');
+			delete_transient('job_market_query');
 		break;
 		
 		case 'post' :

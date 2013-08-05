@@ -32,7 +32,7 @@ if ( false === ( $job_market_query = get_transient( 'job_market_query' ) ) ) {
 		<?php while ($job_market_query->have_posts()) : $job_market_query->the_post(); ?>
 				<li class="person <?php echo get_the_directory_filters($post);?> <?php echo get_the_roles($post); ?>">
 					<div class="row">
-						<div class="twelve columns">
+						<div class="eleven columns">
 							<div class="row">
 							<?php if ( has_post_thumbnail()) { ?> 
 								<?php the_post_thumbnail('directory', array('class' => 'padding-five floatleft hide-for-small')); ?>
