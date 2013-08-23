@@ -26,7 +26,8 @@ Template Name: Faculty Books
 					<?php if ( has_post_thumbnail()) { ?> 
 						<?php the_post_thumbnail('medium', array('class'	=> "floatleft")); ?>
 					<?php } ?>
-					<?php $faculty_post_id = get_post_meta($post->ID, 'ecpt_pub_author', true); ?>
+					<?php $faculty_post_id = get_post_meta($post->ID, 'ecpt_pub_author', true);
+							$faculty_post_id2 = get_post_meta($post->ID, 'ecpt_pub_author2', true); ?>
 				<?php if ( get_post_meta($post->ID, 'ecpt_pub_link', true) ) :?>
 					<a href="http://<?php echo get_post_meta($post->ID, 'ecpt_pub_link', true); ?>">
 				<?php endif; ?>
@@ -38,7 +39,13 @@ Template Name: Faculty Books
 				</h6>
 				<p><b><a href="<?php echo get_permalink($faculty_post_id); ?>"><?php echo get_the_title($faculty_post_id); ?> 
 				<?php if ( get_post_meta($post->ID, 'ecpt_pub_role', true)) :?>, <?php echo get_post_meta($post->ID, 'ecpt_pub_role', true); endif; ?>
-				</a></b></p>
+				</a>
+				<?php if (get_post_meta($post->ID, 'ecpt_author_cond', true) == 'on') { ?><br>
+					<a href="<?php echo get_permalink($faculty_post_id2); ?>"><?php echo get_the_title($faculty_post_id2); ?> 
+						<?php if ( get_post_meta($post->ID, 'ecpt_pub_role2', true)) :?>, <?php echo get_post_meta($post->ID, 'ecpt_pub_role2', true); endif;  ?>
+					</a>
+				<?php } ?>
+				</b></p>
 				<?php the_content(); ?>
 				<hr>
 			<?php endwhile; endif; ?>
