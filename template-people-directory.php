@@ -145,7 +145,7 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 		<!-- Research Query -->
 		<?php if($research_people_query->have_posts()) : ?>
 		<a name="research" id="research"></a>
-		<li class="person sub-head research quicksearch-match"><h2 class="black">Research Staff</h2></li>
+		<li class="person sub-head research quicksearch-match <?php foreach ( $filters as $filter ) { echo $filter->slug . ' '; } ?>"><h2 class="black">Research Staff</h2></li>
 		<?php while ($research_people_query->have_posts()) : $research_people_query->the_post(); ?>
 				<li class="person <?php echo get_the_directory_filters($post);?> <?php echo get_the_roles($post); ?>">
 					<div class="row">
