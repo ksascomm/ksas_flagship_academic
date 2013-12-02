@@ -1652,8 +1652,8 @@ div.orbit-wrapper div.timer {
 }
 
 .slide summary {
-	background: rgb(0,0,0)
-	background: rgba(0,0,0,.9)
+	background: rgb(0,0,0);
+	background: rgba(0,0,0,.9);
 }
 
 .slide h6 {
