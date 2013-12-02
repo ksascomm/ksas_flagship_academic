@@ -34,7 +34,10 @@ if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flags
 	    });
 	</script>
 
-<?php } ?>
+<?php } if (is_page_template('template-program-people.php')) { ?>
+	
+  	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.page.directory.js"></script>
+<? } ?>
 
 <!***********SINGLE ITEMS (NEWS & PEOPLE_**************>
 <?php 
@@ -64,7 +67,7 @@ if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flags
 <?php } ?>
 
 <!***********HOMEPAGE**************>
-<?php if ( is_front_page()) { ?>
+<?php if ( is_front_page() || is_page_template('template-program-frontpage.php')) { ?>
 	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.foundation.orbit.js"></script>
 	<script>
 		var $l = jQuery.noConflict();
