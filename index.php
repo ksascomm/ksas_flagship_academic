@@ -2,18 +2,32 @@
 <div class="row sidebar_bg radius10" id="page">
 	<div class="eight columns wrapper radius-left offset-topgutter">	
 		<?php locate_template('parts-nav-breadcrumbs.php', true, false);
-		$theme_option = flagship_sub_get_global_options(); ?>	
+		$theme_option = flagship_sub_get_global_options(); $news_query_cond = $theme_option['flagship_sub_news_query_cond']; ?>	
 		<section class="content">
 		<h2><?php echo $theme_option['flagship_sub_feed_name']; ?> Archive</h2>
 		<?php 
 			$paged = (get_query_var('paged')) ? (int) get_query_var('paged') : 1;
 			if ( false === ( $news_archive_query = get_transient( 'news_archive_query_' . $paged ) ) ) {
-				// It wasn't there, so regenerate the data and save the transient
-				$news_archive_query = new WP_Query(array(
-					'post_type' => 'post',
-					'posts_per_page' => 10,
-					'paged' => $paged
-					)); 
+				if ($news_query_cond === 1) {
+					$news_archive_query = new WP_Query(array(
+						'post_type' => 'post',
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'category',
+								'field' => 'slug',
+								'terms' => array( 'books' ),
+								'operator' => 'NOT IN'
+							)
+						),
+						'posts_per_page' => 10,
+						'paged' => $paged)); 
+				} else {
+					$news_archive_query = new WP_Query(array(
+						'post_type' => 'post',
+						'posts_per_page' => 10,
+						'paged' => $paged
+						)); 
+				}
 					set_transient( 'news_archive_query_' . $paged, $news_archive_query, 2592000 );
 			} 	
 

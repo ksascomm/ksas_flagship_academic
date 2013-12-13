@@ -144,6 +144,14 @@ function flagship_sub_options_page_fields() {
 		"title"   => __( 'Filter by Expertise', 'flagship_sub_textdomain' ),
 		"desc"    => __( 'Do you want to be able to filter by expertise/research area?', 'flagship_sub_textdomain' ),
 		"type"    => "checkbox",
+		"std"    => "0");	
+	$options[14] =
+	array (		
+		"section" => "homepage_section",
+		"id"      => FLAGSHIP_SUB_SHORTNAME . "_news_query_cond",
+		"title"   => __( 'News Feed Option', 'flagship_sub_textdomain' ),
+		"desc"    => __( 'Do you want to exclude faculty books from your news feeds?', 'flagship_sub_textdomain' ),
+		"type"    => "checkbox",
 		"std"    => "0");		
 		return $options;
 		
