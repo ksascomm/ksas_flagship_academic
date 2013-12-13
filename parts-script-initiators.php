@@ -4,23 +4,22 @@ For production environment search and replace javascripts/ for javascripts/min.
 -->
 <!***********ALL PAGES**************>  
 <script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.foundation.js"></script> 
-<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.app.js"></script>
-
+<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.app.js"></script> 
 <!**********TABLET/MOBILE MENUS**************>  
-<?php $user_agent = empty($_SERVER['HTTP_USER_AGENT']) ? false : $_SERVER['HTTP_USER_AGENT'];if(preg_match('/(ipad|viewpad|tablet|bolt|xoom|touchpad|playbook|kindle|gt-p|gt-i|sch-i|sch-t|mz609|mz617|mid7015|tf101|g-v|ct1002|transformer|silk| tab)/i', $user_agent ) || ( preg_match('/android/i', $user_agent ) && !preg_match('/mobile/i', $user_agent )) ) ://do something here for tablets  ?>
+<?php if(is_tablet()) {  ?>
 		<script>
 			jQuery(document).ready(function () {
 			    jQuery('#main_nav').meanmenu({meanScreenWidth: "1400"});
 			});
 		</script>
 		<style>#search-bar {margin-top:50px;}</style>
-<?php else : ?>
+<?php } else { ?>
 	<script>
 		jQuery(document).ready(function () {
 		    jQuery('#main_nav').meanmenu();
 		});
 	</script>
-<?php endif; ?>
+<?php } ?>
 
 <!***********DIRECTORY**************>
 <?php $theme_option = flagship_sub_get_global_options();
@@ -34,13 +33,11 @@ if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flags
 	    });
 	</script>
 
+<!***********SINGLE ITEMS (NEWS & PEOPLE_**************>
 <?php } if (is_page_template('template-program-people.php')) { ?>
 	
   	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.page.directory.js"></script>
-<? } ?>
-
-<!***********SINGLE ITEMS (NEWS & PEOPLE_**************>
-<?php 
+<? } 
 	$about_id = ksas_get_page_id('about');
 	$archive_id = ksas_get_page_id('archive');
 	$people_id = ksas_get_page_id('people');
@@ -67,7 +64,7 @@ if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flags
 <?php } ?>
 
 <!***********HOMEPAGE**************>
-<?php if ( is_front_page() || is_page_template('template-program-frontpage.php')) { ?>
+<?php if ( is_front_page()) { ?>
 	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.foundation.orbit.js"></script>
 	<script>
 		var $l = jQuery.noConflict();
@@ -85,8 +82,7 @@ if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flags
 <?php } ?> 
 
 <!***********EVENT CALENDAR**************>
-<?php $theme_option = flagship_sub_get_global_options();
-if ( is_page_template( 'template-calendar.php' ))  { ?>   				
+<?php if ( is_page_template( 'template-calendar.php' ))  { $theme_option = flagship_sub_get_global_options(); ?>   				
 	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.easyXDM.js"></script>
 	<?php $calendar_url = $theme_option['flagship_sub_calendar_address'];
 		$url_for_script = "http://krieger.jhu.edu/calendar/calendar_holder.html?url=" . $calendar_url . "/"; ?>
@@ -105,8 +101,7 @@ if ( is_page_template( 'template-calendar.php' ))  { ?>
 <?php } ?>
 
 <!***********EVENT CALENDAR - MOBILE**************>
-<?php $theme_option = flagship_sub_get_global_options();
-if ( is_page_template( 'template-calendar-mobile.php' ))  { ?>   				
+<?php if ( is_page_template( 'template-calendar-mobile.php' ))  { $theme_option = flagship_sub_get_global_options(); ?>   				
 	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.easyXDM.js"></script>
 	<?php $calendar_url = $theme_option['flagship_sub_calendar_address'];
 		$url_for_script = "http://krieger.jhu.edu/calendar/calendar_holder.html?url=" . $calendar_url . "/list/bymonth"; ?>
