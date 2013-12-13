@@ -49,7 +49,7 @@
   </footer>
   
   <?php //Call all the javascript
-  		locate_template('parts-script-initiators.php', true, false); 
+  		get_template_part('parts', 'script-initiators'); 
   		wp_footer(); ?>
 	</body>
 </html>
