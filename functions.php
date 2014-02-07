@@ -1,9 +1,13 @@
 <?php
 //Add Theme Options Page
+if ( !function_exists( 'create_theme_options' ) ) {    
+    function create_theme_options() {
+        require_once('assets/functions/theme-options-init.php');    
+    }
 	if(is_admin()){	
-		require_once('assets/functions/theme-options-init.php');
+		create_theme_options();
 	}
-	
+}	
 	//Collect current theme option values
 		function flagship_sub_get_global_options(){
 			$flagship_sub_option = array();
