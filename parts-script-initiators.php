@@ -32,6 +32,17 @@ if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flags
 	        $j('.filter a[data-filter=".' + filterFromQuerystring  + '"]').click();
 	    });
 	</script>
+<!***********DIRECTORY**************>
+<?php } 
+if ( is_page_template( 'template-courses-undergrad.php' ))   { ?>
+  	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/page.courses.js"></script>
+  	<script>
+	    var $j = jQuery.noConflict();
+	    $j(window).load(function() {
+	        var filterFromQuerystring = getParameterByName('filter');
+	        $j('.filter a[data-filter=".' + filterFromQuerystring  + '"]').click();
+	    });
+	</script>
 
 <!***********SINGLE ITEMS (NEWS & PEOPLE_**************>
 <?php } if (is_page_template('template-program-people.php')) { ?>
