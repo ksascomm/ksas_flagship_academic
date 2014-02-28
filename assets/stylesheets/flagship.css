@@ -70,6 +70,136 @@ ol {
 	margin-bottom: 14px;
 }
 
+/*********COLORS-BG*************/
+body.black #sidebar_header, body.black #site_title, body.black #main_nav ul, body.black #logo_nav, body.black .widget_title, body.black #main_nav ul li ul li:hover, body.black #mobile-header, body .button {
+	background: #333;
+}
+
+body.blue #sidebar_header, body.blue #site_title, body.blue #main_nav ul, body.blue #logo_nav, body.blue .widget_title, .button.french, body.blue #main_nav ul li ul li:hover, body.blue #mobile-header, body.blue .button{
+	background: #336699;
+}
+
+body.green #sidebar_header, body.green #site_title, body.green #main_nav ul, body.green #logo_nav, body.green .widget_title, .button.german, body.green #main_nav ul li ul li:hover, body.green #mobile-header, body.green .button{
+	background: #006666;
+}
+
+body.red #sidebar_header, body.red #site_title, body.red #main_nav ul, body.red #logo_nav, body.red .widget_title, .button.hebrew, body.red #main_nav ul li ul li:hover, body.red #mobile-header, body.red .button{
+	background: #6a2011;
+}
+
+body.yellow #sidebar_header, body.yellow #site_title, body.yellow #main_nav ul, body.yellow #logo_nav, body.yellow .widget_title, .button.italian, body.yellow #main_nav ul li ul li:hover, body.yellow #mobile-header, body.yellow .button {
+	background: #ba920a;
+}
+
+body.aqua #sidebar_header, body.aqua #site_title, body.aqua #main_nav ul, body.aqua #logo_nav, body.aqua .widget_title, .button.portuguese, body.aqua #main_nav ul li ul li:hover, body.aqua #mobile-header, body.aqua .button {
+	background: #339999;
+}
+
+body.purple #sidebar_header, body.purple #site_title, body.purple #main_nav ul, body.purple #logo_nav, body.purple .widget_title, .button.spanish, body.purple #main_nav ul li ul li:hover, body.purple #mobile-header, body.purple .button {
+	background: #333366;
+}
+/*********COLORS-FONTS*************/
+body h1, body h2, body h3, body h4, body h5, body h6, body .semibold, body table thead tr th, body table tfoot tr td, body .sidebar_bg ul.nav li a, body #sidebar li a, body #sidebar li.external a::after {
+	color: #333;
+}
+body.blue h1, body.blue h2, body.blue h3, body.blue h4, body.blue h5, body.blue h6, body.blue .semibold, body.blue table thead tr th, body.blue table tfoot tr td, body.blue a, body.blue .sidebar_bg ul.nav li a, body.blue #sidebar li a, body.blue #sidebar li.external a::after {
+	color: #336699;
+}
+
+body.green h1, body.green h2, body.green h3, body.green h4, body.green h5, body.green h6, body.green .semibold, body.green table thead tr th, body.green table tfoot tr td, body.green a, body.green .sidebar_bg ul.nav li a, body.green #sidebar li a, body.green #sidebar li.external a::after {
+	color: #006666;
+}
+
+body.red h1, body.red h2, body.red h3, body.red h4, body.red h5, body.red h6, body.red .semibold, body.red table thead tr th, body.red table tfoot tr td, body.red a, body.red .sidebar_bg ul.nav li a, body.red #sidebar li a, body.red #sidebar li.external a::after {
+	color: #6a2011;
+}
+
+body.yellow h1, body.yellow h2, body.yellow h3, body.yellow h4, body.yellow h5, body.yellow h6, body.yellow .semibold, body.yellow table thead tr th, body.yellow table tfoot tr td, body.yellow a, body.yellow .sidebar_bg ul.nav li a, body.yellow #sidebar li a, body.yellow #sidebar li.external a::after {
+	color: #ba920a;
+}
+
+body.aqua h1, body.aqua h2, body.aqua h3, body.aqua h4, body.aqua h5, body.aqua h6, body.aqua .semibold, body.aqua table thead tr th, body.aqua table tfoot tr td, body.aqua a, body.aqua .sidebar_bg ul.nav li a, body.aqua #sidebar li a, body.aqua #sidebar li.external a::after {
+	color: #339999;
+}
+
+body.purple h1, body.purple h2, body.purple h3, body.purple h4, body.purple h5, body.purple h6, body.purple .semibold, body.purple table thead tr th, body.purple table tfoot tr td, body.purple a, body.purple .sidebar_bg ul.nav li a, body.purple #sidebar li a, body.purple #sidebar li.external a::after {
+	color: #333366;
+}
+
+/*********COLORS-NAVIGATION*************/
+#main_nav ul li:hover, #main_nav li.active, #main_nav li.current_page_parent, #main_nav li.current_page_ancestor, #main_nav ul li.current_page_item, #main_nav ul li:hover ul, #main_nav ul li a:hover ul, #main_nav ul li.current_page_ancestor ul, #main_nav ul li.current_page_item ul, #main_nav ul .flyout {
+	background: #000;
+}
+
+body.blue #main_nav ul li:hover, body.blue #main_nav li.active, body.blue #main_nav li.current_page_parent, body.blue #main_nav li.current_page_ancestor, body.blue #main_nav ul li.current_page_item, body.blue #main_nav ul li:hover ul, body.blue #main_nav ul li a:hover ul, body.blue #main_nav ul li.current_page_ancestor ul, body.blue #main_nav ul li.current_page_item ul, body.blue #main_nav ul .flyout, body.blue ul.flyout li a  {
+	background: #224466;
+}
+
+body.green #main_nav ul li:hover, body.green #main_nav li.active, body.green #main_nav li.current_page_parent, body.green #main_nav li.current_page_ancestor, body.green #main_nav ul li.current_page_item, body.green #main_nav ul li:hover ul, body.green #main_nav ul li a:hover ul, body.green #main_nav ul li.current_page_ancestor ul, body.green #main_nav ul li.current_page_item ul, body.green #main_nav ul .flyout, body.green ul.flyout li a {
+	background: #003333;
+}
+
+body.red #main_nav ul li:hover, body.red #main_nav li.active, body.red #main_nav li.current_page_parent, body.red #main_nav li.current_page_ancestor, body.red #main_nav ul li.current_page_item, body.red #main_nav ul li:hover ul, body.red #main_nav ul li a:hover ul, body.red #main_nav ul li.current_page_ancestor ul, body.red #main_nav ul li.current_page_item ul, body.red #main_nav ul .flyout, body.red ul.flyout li a {
+	background: #381109;
+}
+
+body.yellow #main_nav ul li:hover, body.yellow #main_nav li.active, body.yellow #main_nav li.current_page_parent, body.yellow #main_nav li.current_page_ancestor, body.yellow #main_nav ul li.current_page_item, body.yellow #main_nav ul li:hover ul, body.yellow #main_nav ul li a:hover ul, body.yellow #main_nav ul li.current_page_ancestor ul, body.yellow #main_nav ul li.current_page_item ul, body.yellow #main_nav ul .flyout, body.yellow ul.flyout li a {
+	background: #876907;
+}
+
+body.aqua #main_nav ul li:hover, body.aqua #main_nav li.active, body.aqua #main_nav li.current_page_parent, body.aqua #main_nav li.current_page_ancestor, body.aqua #main_nav ul li.current_page_item, body.aqua #main_nav ul li:hover ul, body.aqua #main_nav ul li a:hover ul, body.aqua #main_nav ul li.current_page_ancestor ul, body.aqua #main_nav ul li.current_page_item ul, body.aqua #main_nav ul .flyout, body.aqua ul.flyout li a {
+	background: #226666;
+}
+
+body.purple #main_nav ul li:hover, body.purple #main_nav li.active, body.purple #main_nav li.current_page_parent, body.purple #main_nav li.current_page_ancestor, body.purple #main_nav ul li.current_page_item, body.purple #main_nav ul li:hover ul, body.purple #main_nav ul li a:hover ul, body.purple #main_nav ul li.current_page_ancestor ul, body.purple #main_nav ul li.current_page_item ul, body.purple #main_nav ul .flyout, body.purple ul.flyout li a {
+	background: #1a1a33;
+}
+
+/*********BORDERS & PANELS*************/
+body .callout.panel {
+    background: #c1c1c1;
+}
+body.blue .callout.panel {
+    background: #c1d1e0;
+}
+body.green .callout.panel {
+    background: #b2d1d1;
+}
+body.red .callout.panel {
+    background: #d2bcb7;
+}
+body.yellow .callout.panel {
+    background: #faeab6;
+}
+body.aqua .callout.panel {
+    background: #c1e0e0;
+}
+body.purple .callout.panel {
+    background: #c1c1d1;
+}
+
+/*********ACCORDION & TABS BORDERS*************/
+body ul.accordion > li.active, body .tabs dd.active, body .tabs li.active{
+    border-top: 3px solid #333;
+}
+body.blue ul.accordion > li.active, body.blue .tabs dd.active, body.blue .tabs li.active{
+    border-top: 3px solid #336699;
+}
+body.green ul.accordion > li.active, body.green .tabs dd.active, body.green .tabs li.active {
+    border-top: 3px solid #006666;
+}
+body.red ul.accordion > li.active, body.red .tabs dd.active, body.red .tabs li.active {
+    border-top: 3px solid #6a2011;
+}
+body.yellow ul.accordion > li.active, body.yellow .tabs dd.active, body.yellow .tabs li.active {
+    border-top: 3px solid #ba920a;
+}
+body.aqua ul.accordion > li.active, body.aqua .tabs dd.active, body.aqua .tabs li.active {
+    border-top: 3px solid #339999;
+}
+body.purple ul.accordion > li.active, body.purple .tabs dd.active, body.purple .tabs li.active {
+    border-top: 3px solid #333366;
+}
 /******* Reusable Classes ************/
 .wrapper {
 	background: rgb(255,255,255);
@@ -114,11 +244,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2fcfcfc', e
 }
 
 .white {
-	color:#FFF;
+	color:#FFF !important;
 }
 
+.grey { color: #CCC !important;}
+
 .black {
-	color: #333;
+	color: #333 !important;
 }
 
 .sky_blue {
@@ -126,7 +258,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2fcfcfc', e
 }
 
 .blue {
-	color:#3478b6
+	color:#3478b6;
 }
 
 .blue_bg,
@@ -251,15 +383,15 @@ button a:visited,
 .button.radio a.selected,
 .button.radio a:hover {
  -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;
- background-color: #3478b6;
+ background-color: none;
  color: #FFF;
 }
 
 .button a.selected,
 .button.radio a:hover,
 .button.radio a.selected {
-	color:#000;
-	text-shadow: 1px 1px 1px #FFF;
+	color:#F7f7f7;
+	text-shadow: 2px 2px 2px #000;
 }
 
 .radius10 {
@@ -1694,6 +1826,30 @@ div.orbit-wrapper div.timer {
 #search-results ul {
 	list-style: none;
 }
+
+/*******COURSES ******/
+ul.expander > li {
+	width: 100%;
+}
+
+.courses.isotope .isotope-item {
+    min-height: 0px !important;
+}
+.courses .isotope-hidden{
+    display: none;
+}
+
+courses.isotope.no-transition,
+courses.isotope.no-transition .isotope-item,
+courses.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+
 /******* Icons ******/
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
