@@ -152,8 +152,26 @@ function flagship_sub_options_page_fields() {
 		"title"   => __( 'News Feed Option', 'flagship_sub_textdomain' ),
 		"desc"    => __( 'Do you want to exclude faculty books from your news feeds?', 'flagship_sub_textdomain' ),
 		"type"    => "checkbox",
-		"std"    => "0");		
-		return $options;
+		"std"    => "0");
+	$options[15] =
+	array (		
+		"section" => "technical_section",
+		"id"      => FLAGSHIP_SUB_SHORTNAME . "_isis_name",
+		"title"   => __( 'ISIS Department Name', 'flagship_sub_textdomain' ),
+		"desc"    => __( 'Enter the ISIS department name', 'flagship_sub_textdomain' ),
+		"type"    => "text",
+		"class"   => "nohtml",
+		"std"    => "");
+	$options[16] =
+	array (		
+		"section" => "select_section",
+		"id"      => FLAGSHIP_SUB_SHORTNAME . "_color_scheme",
+		"title"   => __( 'Color Scheme', 'flagship_sub_textdomain' ),
+		"desc"    => __( 'Choose your theme color scheme', 'flagship_sub_textdomain' ),
+		"type"    => "select",
+		"choices" => array('blue','black','yellow','green','purple','red','aqua'),
+		"std"    => "blue");
+	return $options;
 		
 }
 
