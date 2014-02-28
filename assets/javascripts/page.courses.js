@@ -1646,6 +1646,20 @@ $j(document).ready(function(){
     });
     
     $j('ul.accordion li').click( function() {$container.isotope('reLayout')});
+/**
+ * Expand/Collapse All for accordions
+ */
 
+$j(".acc_expandall").toggle(function() {
+					$j(this).text("[Collapse All]").stop();
+					$j("li .content").show();
+					$j("ul.accordion li").addClass("active");
+					$container.isotope('reLayout')
+				}, function() {
+					$j(this).text("[Expand All]").stop();
+					$j("li .content").hide();
+					$j("ul.accordion li").removeClass("active");
+					$container.isotope('reLayout')
+				});
 });
 

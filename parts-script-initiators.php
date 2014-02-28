@@ -35,14 +35,7 @@ if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flags
 <!***********DIRECTORY**************>
 <?php } 
 if ( is_page_template( 'template-courses-undergrad.php' ))   { ?>
-  	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/page.courses.js"></script>
-  	<script>
-	    var $j = jQuery.noConflict();
-	    $j(window).load(function() {
-	        var filterFromQuerystring = getParameterByName('filter');
-	        $j('.filter a[data-filter=".' + filterFromQuerystring  + '"]').click();
-	    });
-	</script>
+  	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.page.courses.js"></script>
 
 <!***********SINGLE ITEMS (NEWS & PEOPLE_**************>
 <?php } if (is_page_template('template-program-people.php')) { ?>
