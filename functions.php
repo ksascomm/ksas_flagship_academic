@@ -52,7 +52,7 @@ add_action('after_setup_theme','academic_flagship_theme_support');
 			'description'   => 'This is the default sidebar',
 			'before_widget' => '<div id="widget" class="widget %2$s row">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<div class="blue_bg widget_title"><h5 class="white">',
+			'before_title'  => '<div class="widget_title"><h5 class="white">',
 			'after_title'   => '</h5></div>' 
 			));
 	if ( function_exists('register_sidebar') )
@@ -62,7 +62,7 @@ add_action('after_setup_theme','academic_flagship_theme_support');
 			'description'   => 'This sidebar will appear on pages under Graduate',
 			'before_widget' => '<div id="widget" class="widget %2$s row">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<div class="blue_bg widget_title"><h5 class="white">',
+			'before_title'  => '<div class="widget_title"><h5 class="white">',
 			'after_title'   => '</h5></div>' 
 			));
 	if ( function_exists('register_sidebar') )
@@ -72,7 +72,7 @@ add_action('after_setup_theme','academic_flagship_theme_support');
 			'description'   => 'This sidebar will appear on pages under Undergraduate',
 			'before_widget' => '<div id="widget" class="widget %2$s row">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<div class="blue_bg widget_title"><h5 class="white">',
+			'before_title'  => '<div class="widget_title"><h5 class="white">',
 			'after_title'   => '</h5></div>' 
 			));
 	if ( function_exists('register_sidebar') )
@@ -82,7 +82,7 @@ add_action('after_setup_theme','academic_flagship_theme_support');
 			'description'   => 'This sidebar will appear on pages under Research',
 			'before_widget' => '<div id="widget" class="widget %2$s row">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<div class="blue_bg widget_title"><h5 class="white">',
+			'before_title'  => '<div class="widget_title"><h5 class="white">',
 			'after_title'   => '</h5></div>' 
 			));
 	if ( function_exists('register_sidebar') )
@@ -92,7 +92,7 @@ add_action('after_setup_theme','academic_flagship_theme_support');
 			'description'   => 'This sidebar will only appear on the homepage',
 			'before_widget' => '<div id="widget" class="widget %2$s row">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<div class="blue_bg widget_title"><h5 class="white">',
+			'before_title'  => '<div class="widget_title"><h5 class="white">',
 			'after_title'   => '</h5></div>' 
 			));
 
@@ -136,10 +136,15 @@ function delete_academic_transients($post_id) {
 	}
 	switch($post_type) {
 		case 'people' :
-			delete_transient('faculty_people_query');
-			delete_transient('research_people_query');
-			delete_transient('staff_people_query');
-			delete_transient('job_market_query');
+			$roles = get_terms('role', array(
+						'orderby' 		=> 'id',
+						'hide_empty'    => true,
+						)); 
+			foreach($roles as $role) {
+			$role_slug = $role->slug;
+				delete_transient('people_query_' . $role_slug);
+				delete_transient('job_market_query');
+			}
 		break;
 		
 		case 'post' :
@@ -148,6 +153,7 @@ function delete_academic_transients($post_id) {
 			      delete_transient('news_archive_query_' . $i); }
 			   
 			delete_transient('news_query');
+			delete_transient('news_mainpage_query');
 		break;
 		
 		case 'slider' :
