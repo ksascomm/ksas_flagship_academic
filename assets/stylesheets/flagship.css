@@ -33,6 +33,9 @@ strong, b,
 	font-style: normal;
 }
 
+.capitalize {
+	text-transform: capitalize;
+}
 .iconfont {
 	font-family: 'flagship-icon';
 }
@@ -257,63 +260,60 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2fcfcfc', e
 	color: #6699cc;
 }
 
-.blue {
-	color:#3478b6;
-}
 
 .blue_bg,
 #SECalendar .SECalendarEventDetails,
 #SECalendar .SECalendarEventDetails.color1,
 .color1 {
-	background: #3478b6;
+	background: #3478b6 !important;
 }
 
 .dark_blue_bg,
 #SECalendar .SECalendarEventDetails.color8,
 .color8 {
-	background:#003366;
+	background:#003366 !important;
 }
 
 .grey_bg,
 #SECalendar .SECalendarEventDetails.color9,
 .color9 {
-	background: #666;
+	background: #666 !important;
 }
 
 .rust_bg,
 #SECalendar .SECalendarEventDetails.color7,
 .color7 {
-	background: #663333;
+	background: #663333 !important;
 }
 .green_bg,
 #SECalendar .SECalendarEventDetails.color4,
 .color4{
-	background: #006666;
+	background: #006666 !important;
 }
 
 .purple_bg,
 #SECalendar .SECalendarEventDetails.color5,
 .color5 {
-	background: #333366;
+	background: #333366 !important;
 }
 
 .fushia,
 #SECalendar .SECalendarEventDetails.color6,
 .color6  {
-	background: #993366;
+	background: #993366 !important;
 }
 
 .yellow_bg,
 #SECalendar .SECalendarEventDetails.color2,
 .color2 {
-	background: #dbb003;
+	background: #dbb003 !important;
 }
 
 .orange_bg,
 .orange_bg.button:hover,
 #SECalendar .SECalendarEventDetails.color3,
 .color3 {
-	background: #cc6600;
+	background: #cc6600 !important;
 }
 
 .bright_blue_bg,
@@ -321,7 +321,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2fcfcfc', e
 .color0,
 .SECalendarPrevMonth,
 .SECalendarNextMonth {
-	background: #3399ff;
+	background: #3399ff !important;
 }
 
 button,
@@ -390,7 +390,7 @@ button a:visited,
 .button a.selected,
 .button.radio a:hover,
 .button.radio a.selected {
-	color:#F7f7f7;
+	color:#F7f7f7 !important;
 	text-shadow: 2px 2px 2px #000;
 }
 
@@ -1789,7 +1789,7 @@ div.orbit-wrapper div.timer {
 }
 
 .slide h6 {
-	color: #dbb003;
+	color: #dbb003 !important;
 	font-size: 100%;
 }
 
