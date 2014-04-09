@@ -9,7 +9,7 @@ For production environment search and replace javascripts/ for javascripts/min.
 <?php if(is_tablet()) {  ?>
 		<script>
 			jQuery(document).ready(function () {
-			    jQuery('#main_nav').meanmenu({meanScreenWidth: "1400"});
+			    jQuery('#main_nav').meanmenu({meanScreenWidth: "768"});
 			});
 		</script>
 		<style>#search-bar {margin-top:50px;}</style>
