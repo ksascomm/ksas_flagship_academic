@@ -30,5 +30,5 @@
 		</b></p>
 		</a>
 		<hr>
-	<?php endwhile; endif; ?>
+	<?php endwhile; endif; wp_reset_query(); ?>
 </li>

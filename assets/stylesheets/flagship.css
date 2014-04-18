@@ -1640,7 +1640,7 @@ margin: 2px 2px 2px 0;
 padding:6px 9px 5px 9px;
 text-decoration:none;
 width:auto;
-color:#fff;
+color:#fff !important;
 background: #555;
 }
 
