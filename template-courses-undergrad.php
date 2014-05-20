@@ -11,6 +11,7 @@ Template Name: ISIS Courses
 		$theme_option = flagship_sub_get_global_options(); 
 		$department_unclean = $theme_option['flagship_sub_isis_name'];
 		$department = str_replace(' ', '%20', $department_unclean);
+		$department = str_replace('&', '%26', $department);
 		$fall = 'fall%202014';
 		$spring = 'spring%202014';
 		$key = 'DZkN4QOJGaDKVg6Du1911u45d4TJNp6I';
