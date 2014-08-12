@@ -13,7 +13,7 @@ Template Name: ISIS Courses
 		$department = str_replace(' ', '%20', $department_unclean);
 		$department = str_replace('&', '%26', $department);
 		$fall = 'fall%202014';
-		$spring = 'spring%202014';
+		$spring = 'spring%202015';
 		$key = 'DZkN4QOJGaDKVg6Du1911u45d4TJNp6I';
 		
 	//Create first Zebra Curl class
@@ -91,8 +91,8 @@ Template Name: ISIS Courses
 				<fieldset class="radius10">
 							<div class="row filter option-set" data-filter-group="term">
 									<div class="button radio"><a href="#" data-filter="" class="selected">View All</a></div>
-									<div class="button radio"><a href="#" data-filter=".Spring">Spring 2014 Courses</a></div>
 									<div class="button radio"><a href="#" data-filter=".Fall">Fall 2014 Courses</a></div>
+									<div class="button radio"><a href="#" data-filter=".Spring">Spring 2015 Courses</a></div>
 									<h5 class="inline"><a href="#" class="acc_expandall">[Expand All]</a></h5>
 							</div>
 					<div class="row">		
