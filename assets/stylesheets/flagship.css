@@ -1559,9 +1559,6 @@ ul.nav:last-child {
 	width:100%;
 } 
 
-#SECalendarTable td {
-	border: 1px solid #ddd;
-}
 #SECalendarNav {
 	margin: 10px auto 20px auto;
 }
@@ -1606,6 +1603,16 @@ a.rssLink,
 
 .SECalendarDay a {
 	color: #000;
+}
+
+#calendar_container iframe {
+height: 785px!important;
+}
+
+#SECalendarTable td {
+	border: 1px solid #ddd;
+	width: 14.28%;
+	height: 138px;
 }
 
 /******* News Index Pages ******/
@@ -1745,6 +1752,13 @@ h6.pub {
 	margin-bottom: 25px;
 }
 /*******HOMEPAGE SLIDER ******/
+
+#slider { background: url(spinner.gif) center center #f4f4f4 no-repeat; height: 300px; }
+#slider img { display: none; }
+
+#slider.orbit { background: none; }
+#slider.orbit img { display: block; }
+
 
 ul.orbit-bullets {
 	top: 405px;
