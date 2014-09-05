@@ -14,6 +14,8 @@ Template Name: ISIS Courses
 		$department = str_replace('&', '%26', $department);
 		$fall = 'fall%202014';
 		$spring = 'spring%202015';
+		$intersession = 'intersession%202015';
+		$open = 'open';
 		$key = 'DZkN4QOJGaDKVg6Du1911u45d4TJNp6I';
 		
 	//Create first Zebra Curl class
@@ -26,15 +28,18 @@ Template Name: ISIS Courses
 		$course_curl->cache($cache_dir, 2592000);
  
 	//Create API Url calls
-		$courses_spring_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $spring . '&Department=AS%20' . $department;
-		$courses_fall_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $fall . '&Department=AS%20' . $department;
-		$courses_call = array($courses_spring_url, $courses_fall_url);
+		$courses_spring_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $spring . '&Department=AS%20' . $department . '&status=' . $open;
+		$courses_fall_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $fall . '&Department=AS%20' . $department . '&status=' . $open;
+		$courses_intersession_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $intersession . '&Department=AS%20' . $department. '&status=' . $open;
+		$courses_call = array($courses_spring_url, $courses_fall_url, $courses_intersession_url);
 	
 	//Course display callback function
 		function display_courses($result) {
 		    $result->body = json_decode(html_entity_decode($result->body));
 			$title = $result->body[0]->{'Title'};
 			$term = $result->body[0]->{'Term'};
+			$meetings = $result->body[0]->{'Meetings'};
+			$status = $result->body[0]->{'Status'};
 			$course_number = $result->body[0]->{'OfferingName'};
 			$clean_course_number = preg_replace('/[^A-Za-z0-9\-]/', '', $course_number);
 			$credits = $result->body[0]->{'Credits'};
@@ -43,7 +48,7 @@ Template Name: ISIS Courses
 		    // show everything
 		    echo '<li class="' . $term . '" id="' . $clean_course_number . '"><div class="title"><h5><span class="course-number">' . $course_number . '</span> - ' . $title . '</h5></div>';
 		    echo '<div class="content"><p>' . $description . '</p>';
-		    echo '<p><b>Credits: </b>' . $credits . '<br><b>Instructor: </b>' . $instructor . '<br><b>Term: </b>' . $term . '</p>'; 
+		    echo '<p><b>Credits: </b>' . $credits . '<br><b>Instructor: </b>' . $instructor . '<br><b>Term: </b>' . $term . '<br><b>Meetings: </b>' . $meetings . '<br><b>Status: </b>' . $status .'</p>'; 
 		    echo '</div></li>';
 		 
 		}
@@ -92,6 +97,7 @@ Template Name: ISIS Courses
 							<div class="row filter option-set" data-filter-group="term">
 									<div class="button radio"><a href="#" data-filter="" class="selected">View All</a></div>
 									<div class="button radio"><a href="#" data-filter=".Fall">Fall 2014 Courses</a></div>
+									<div class="button radio"><a href="#" data-filter=".Intersession">Intersession 2015 Courses</a></div>
 									<div class="button radio"><a href="#" data-filter=".Spring">Spring 2015 Courses</a></div>
 									<h5 class="inline"><a href="#" class="acc_expandall">[Expand All]</a></h5>
 							</div>
