@@ -15,7 +15,10 @@ Template Name: ISIS Courses
 		$fall = 'fall%202014';
 		$spring = 'spring%202015';
 		$intersession = 'intersession%202015';
+		$approval = 'approval%20required';
+		$closed = 'closed';
 		$open = 'open';
+		$waitlist = 'waitlist%20only';
 		$key = 'DZkN4QOJGaDKVg6Du1911u45d4TJNp6I';
 		
 	//Create first Zebra Curl class
@@ -28,9 +31,9 @@ Template Name: ISIS Courses
 		$course_curl->cache($cache_dir, 2592000);
  
 	//Create API Url calls
-		$courses_spring_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $spring . '&Department=AS%20' . $department . '&status=' . $open;
-		$courses_fall_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $fall . '&Department=AS%20' . $department . '&status=' . $open;
-		$courses_intersession_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $intersession . '&Department=AS%20' . $department. '&status=' . $open;
+		$courses_spring_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $spring . '&Department=AS%20' . $department . '&status=' . $open . '&status=' . $approval . '&status=' . $closed . '&status=' . $waitlist;
+		$courses_fall_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $fall . '&Department=AS%20' . $department . '&status=' . $open . '&status=' . $approval . '&status=' . $closed . '&status=' . $waitlist;
+		$courses_intersession_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $intersession . '&Department=AS%20' . $department. '&status=' . $open . '&status=' . $approval . '&status=' . $closed . '&status=' . $waitlist;
 		$courses_call = array($courses_spring_url, $courses_fall_url, $courses_intersession_url);
 	
 	//Course display callback function
