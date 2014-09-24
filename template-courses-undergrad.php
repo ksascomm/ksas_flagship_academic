@@ -65,7 +65,7 @@ Template Name: ISIS Courses
 					$level = $course->{'Level'};
 					$parent = the_parent_title();
 					
-					if($section === '01' && strpos($level, $parent) !== false) {
+					if($section === '01' && (strpos($level, $parent) !== false ||  strpos($level, 'Independent Academic Work') !== false))  {
 						$number = $course->{'OfferingName'};
 						$clean_number = preg_replace('/[^A-Za-z0-9\-]/', '', $number);
 						$dirty_term = $course->{'Term'};
