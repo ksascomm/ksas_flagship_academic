@@ -1137,6 +1137,7 @@ ul.nav li ul li:before {
 }
 
 .hub img,
+.ksas_recent img,
 .ksas_books img {
 	max-width: 75px;
 	float: left;
@@ -1145,6 +1146,7 @@ ul.nav li ul li:before {
 
 .hub h6,
 .ksas_books h6,
+.ksas_recent h6,
 .textwidget h6 {
 	margin-top: 0;
 	text-transform: none;
@@ -1154,9 +1156,15 @@ ul.nav li ul li:before {
 
 .textwidget,
 .hub article,
-.ksas_books article {
+.ksas_books article,
+.ksas_recent article {
 	padding: 3px 20px;
 }
+
+.widget article {
+	padding: 3px 25px;
+}
+
 /******* Home ************/
 
 .four.columns .video_thumb .icon-play:before {
