@@ -4,16 +4,20 @@
 	$single_books_query = new WP_Query(array(
 	    'post_type' => 'post',
 	    'category_name' => 'books',
-	    'meta_query' => array(                  
+	    'meta_query' => array(   
+	    'relation'=> 'OR',               
 	       array(
 	         'key' => 'ecpt_pub_author',                  
 	         'value' => $author_id,               
 	         'type' => 'NUMERIC',                 
 	         'compare' => '='                 
 	       ),
+	       array(
+	       	'key'=>'ecpt_pub_author2',
+	       	'value'=> $author_id,
+	       	),
 	      'posts_per_page' => '-1'
     ))); 
-    
     
 	if ( $single_books_query->have_posts() ) : while ($single_books_query->have_posts()) : $single_books_query->the_post(); ?>
 		
