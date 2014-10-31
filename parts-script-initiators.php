@@ -32,10 +32,13 @@ if ( is_page_template( 'template-people-directory.php' ) && $theme_option['flags
 	        $j('.filter a[data-filter=".' + filterFromQuerystring  + '"]').click();
 	    });
 	</script>
+
+	
 <!***********DIRECTORY**************>
 <?php } 
-if ( is_page_template( 'template-courses-undergrad.php' ))   { ?>
+if ( is_page_template( 'template-courses-undergrad.php' ) || is_page_template( 'template-courses-all.php' ))   { ?>
   	<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.page.courses.js"></script>
+
 
 <!***********SINGLE ITEMS (NEWS & PEOPLE_**************>
 <?php } if (is_page_template('template-program-people.php')) { ?>
@@ -66,6 +69,9 @@ if ( is_page_template( 'template-courses-undergrad.php' ))   { ?>
 			});
 	</script>
 <?php } ?>
+
+
+
 
 <!***********HOMEPAGE**************>
 <?php if ( is_front_page()) { ?>
