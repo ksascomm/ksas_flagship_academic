@@ -4,7 +4,9 @@
 	if ( false === ( $slider_query = get_transient( 'slider_query' ) ) ) {
 		$slider_query = new WP_Query(array(
 			'post_type' => 'slider',
-			'posts_per_page' => '5'));
+			'posts_per_page' => '5',
+			'orderby' => 'menu_order', 
+			'order' => 'ASC'));
 		set_transient( 'slider_query', $slider_query, 2592000 );
 	} 	
 	if ( $slider_query->have_posts() ) :
