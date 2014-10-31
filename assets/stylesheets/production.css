@@ -2660,7 +2660,8 @@ ul.nav:last-child {
 } 
 
 #SECalendarTable td {
-	border: 1px solid #ddd;
+	border: 5px solid #ddd;
+
 }
 #SECalendarNav {
 	margin: 10px auto 20px auto;
