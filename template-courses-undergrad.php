@@ -15,11 +15,11 @@ Template Name: ISIS Courses
 		$fall = 'fall%202014';
 		$spring = 'spring%202015';
 		$intersession = 'intersession%202015';
+		$open = 'open';
 		$approval = 'approval%20required';
 		$closed = 'closed';
-		$open = 'open';
 		$waitlist = 'waitlist%20only';
-		$key = 'DZkN4QOJGaDKVg6Du1911u45d4TJNp6I';
+		$key = 'Qrf9MQse2cdpgaYdPF23dkMaqrVKE5dP';
 		
 	//Create first Zebra Curl class
 		$course_curl = new Zebra_cURL();
@@ -65,7 +65,7 @@ Template Name: ISIS Courses
 					$level = $course->{'Level'};
 					$parent = the_parent_title();
 					
-					if($section === '01' && (strpos($level, $parent) !== false ||  strpos($level, 'Independent Academic Work') !== false))  {
+					if($section === '01' && (strpos($level, $parent) !== false) || strpos($level, 'Independent Academic Work') !== false) {
 						$number = $course->{'OfferingName'};
 						$clean_number = preg_replace('/[^A-Za-z0-9\-]/', '', $number);
 						$dirty_term = $course->{'Term'};
