@@ -31,9 +31,9 @@ Template Name: ISIS Courses
 		$course_curl->cache($cache_dir, 2592000);
  
 	//Create API Url calls
-		$courses_spring_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $spring . '&Department=AS%20' . $department . '&status=' . $open . '&status=' . $approval . '&status=' . $closed . '&status=' . $waitlist;
-		$courses_fall_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $fall . '&Department=AS%20' . $department . '&status=' . $open . '&status=' . $approval . '&status=' . $closed . '&status=' . $waitlist;
-		$courses_intersession_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $intersession . '&Department=AS%20' . $department. '&status=' . $open . '&status=' . $approval . '&status=' . $closed . '&status=' . $waitlist;
+		$courses_spring_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $spring . '&Department=AS%20' . $department;
+		$courses_fall_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $fall . '&Department=AS%20' . $department;
+		$courses_intersession_url = 'https://isis.jhu.edu/api/classes?key=' . $key . '&School=Krieger%20School%20of%20Arts%20and%20Sciences&Term=' . $intersession . '&Department=AS%20' . $department;
 		$courses_call = array($courses_spring_url, $courses_fall_url, $courses_intersession_url);
 	
 	//Course display callback function
@@ -65,7 +65,12 @@ Template Name: ISIS Courses
 					$level = $course->{'Level'};
 					$parent = the_parent_title();
 					
-					if($section === '01' && (strpos($level, $parent) !== false) || strpos($level, 'Independent Academic Work') !== false) {
+					if($section === '01' && (
+								strpos($level, $parent) !== false 
+							||  ($level === "") !== false
+							||  strpos($level, 'Independent Academic Work') !== false
+						)
+						) {
 						$number = $course->{'OfferingName'};
 						$clean_number = preg_replace('/[^A-Za-z0-9\-]/', '', $number);
 						$dirty_term = $course->{'Term'};
