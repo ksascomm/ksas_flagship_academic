@@ -25,6 +25,7 @@ function academic_flagship_theme_support() {
 	set_post_thumbnail_size( 125, 125, true );   // default thumb size
 	add_image_size( 'rss', 300, 150, true );
 	add_image_size( 'directory', 90, 130, true );
+	add_image_size( 'exhibits', 253, 150, true );
 	add_theme_support( 'automatic-feed-links' ); // rss thingy
 	$bg_args = array(
 		'default-color'          => '#000000',
